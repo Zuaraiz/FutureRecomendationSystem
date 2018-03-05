@@ -8,10 +8,8 @@ namespace APIs.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Home()
         {
-            ViewBag.Title = "Home Page";
-
             return View();
         }
     }

@@ -37,6 +37,9 @@ namespace APIs.Controllers
             GetHobbyById_Result userHobby = db.GetHobbyById(hobby.id).FirstOrDefault<GetHobbyById_Result>();
             return db.UserAddHobbies(hobby.email,userHobby.name ).ToList<UserAddHobbies_Result>();
         }
+
+
+
         [HttpPost]
         [Route("api/user/skills")]
         public List<GetUserSkills_Result> Skills([FromBody] UserSkills skill)
@@ -63,5 +66,66 @@ namespace APIs.Controllers
             FRDBEntities db = new FRDBEntities();
             return db.GetUserHobbies(hobby.email).ToList<String>();
         }
+
+
+
+        [HttpPost]
+        [Route("api/delete/interest")]
+        public int DeleteSkills([FromBody] UserInterest interest)
+
+        {
+            FRDBEntities db = new FRDBEntities();
+            using (db)
+            {
+                return db.DeleteUserInterest(interest.user, interest.id);
+            }
+
+
+        }
+        [HttpPost]
+        [Route("api/delete/Hobby")]
+        public int DeleteHobbies([FromBody] UserHobbies hobby)
+
+        {
+            FRDBEntities db = new FRDBEntities();
+            using (db)
+            {
+                return db.DeleteUserHobbies(hobby.user, hobby.id);
+            }
+
+
+        }
+        [HttpPost]
+        [Route("api/delete/skills")]
+        public int DeleteSkills([FromBody] UserSkill skill)
+
+        {
+            FRDBEntities db = new FRDBEntities();
+            using (db)
+            {
+                return db.DeleteUserSkills(skill.user, skill.id);
+            }
+
+
+        }
+
+
+        [HttpPost]
+        [Route("api/edit/profile")]
+        public  GetUserInfo_Result EditProfile([FromBody]CustomModels userData)
+        {
+            FRDBEntities db = new FRDBEntities();
+            FRDBEntities db1 = new FRDBEntities();
+            using (db)
+            {
+                db.UpdateUserInfo(userData.email, userData.firstName, userData.lastName, userData.percentage, userData.annualBudget, userData.location, userData.qualification);
+            }
+            
+
+            return db1.GetUserInfo(userData.email).FirstOrDefault<GetUserInfo_Result>();
+        }
+
+
+
     }
 }
