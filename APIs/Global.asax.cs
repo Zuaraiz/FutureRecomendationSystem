@@ -1,5 +1,7 @@
-﻿using MultipartDataMediaFormatter;
+﻿using Microsoft.Owin.Cors;
+using MultipartDataMediaFormatter;
 using MultipartDataMediaFormatter.Infrastructure;
+using Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,13 +17,7 @@ namespace APIs
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-            GlobalConfiguration.Configuration.Formatters.Add
-(new FormMultipartEncodedMediaTypeFormatter(new MultipartFormatterSettings()));
+           
         }
     }
 }

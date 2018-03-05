@@ -1,3 +1,130 @@
-<p>
-  profile works!
-</p>
+<div id="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">User Details</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <form role="form">
+                <div class="row col-lg-12">
+                  <fieldset disabled>
+                    <div class="form-group col-lg-6">
+                      <label for="disabledSelect">Username</label>
+                      <p class="form-control-static">yasirabbasi</p>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <label for="disabledSelect">Email</label>
+                      <p class="form-control-static">email@example.com</p>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <label for="disabledSelect">Fistname</label>
+                      <p class="form-control-static">Muhammad</p>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <label for="disabledSelect">Lastname</label>
+                      <p class="form-control-static">Usman</p>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <label for="disabledSelect">City</label>
+                      <p class="form-control-static">Islamabad</p>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <label for="disabledSelect">Budget</label>
+                      <p class="form-control-static">Rs.150000</p>
+                    </div>
+                    <div class="form-group col-lg-6">
+                      <label for="disabledSelect">Qualification</label>
+                      <p class="form-control-static">Pre-Engineering</p>
+                    </div>
+
+                  </fieldset>
+
+                </div>
+
+
+                <div class="form-group" style="padding-left: 1em">
+                  <label>Habbits</label>
+                  <div class="col-md-4 col-sm-4 col-xs-2" style="float:right">
+                    <button type="button" class="btn btn-link" style="font-size: 8pt;right:1em;" mat-raised-button (click)="openDialog()">
+                      <i class=" fa fa-plus-circle" aria-hidden="true"></i>Add New Habbit
+                    </button>
+                  </div>
+                </div>
+                <div class="container" style="background-color: #f8f8f8; width: 97%; padding-top: 0.5em;margin-bottom: 2em;">
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">habbit1</p>
+                  </div>
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4 ;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">habbit 2</p>
+                  </div>
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4 ;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">habbit 3</p>
+                  </div>
+
+                </div>
+                <div class="form-group" style="padding-left: 1em">
+                  <label>Skills</label>
+                  <div class="col-md-4 col-sm-4 col-xs-2" style="float:right">
+                    <button type="button" class="btn btn-link" style="font-size: 8pt;right:1em;" data-toggle="modal" data-target="#skillModal">
+                      <i class=" fa fa-plus-circle" aria-hidden="true"></i>Add New Skill
+                    </button>
+                  </div>
+                </div>
+                <div class="container" style="background-color: #f8f8f8; width: 97%; padding-top: 0.5em;margin-bottom: 2em;">
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">skill1</p>
+                  </div>
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">skill2</p>
+                  </div>
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">skill3</p>
+                  </div>
+
+                </div>
+
+                <div class="form-group" style="padding-left: 1em">
+                  <label>Interests</label>
+                  <div class="col-md-4 col-sm-4 col-xs-2" style="float:right">
+                    <button type="button" class="btn btn-link" style="font-size: 8pt;right:1em;" data-toggle="modal" data-target="#interestModal">
+                      <i class=" fa fa-plus-circle" aria-hidden="true"></i>Add New Interest
+                    </button>
+                  </div>
+
+
+                </div>
+                <div class="container" style="background-color: #f8f8f8; width: 97%; padding-top: 0.5em;margin-bottom: 2em;">
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">interest a</p>
+                  </div>
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">ye b</p>
+                  </div>
+                  <div class="col-lg-1" style="    height: 30px;background-color: #2e7aded4;width: fit-content;border: 1px solid #000bffcf;border-radius: 10pt;padding: 5px 20px; margin: 1em;">
+                    <p style="color: white;">interest 3</p>
+                  </div>
+
+                </div>
+                <div class="form-group" style="margin-top: 3em; padding-left: 1em;">
+                  <a href="edituser.html" class="btn btn-default">Edit</a>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- /.row (nested) -->
+        </div>
+        <!-- /.panel-body -->
+      </div>
+      <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+  <!-- /.row -->
+</div>

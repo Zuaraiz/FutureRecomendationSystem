@@ -267,6 +267,45 @@ namespace APIs.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AddUserRecomendation_Result>("AddUserRecomendation", emailParameter, majorParameter);
         }
     
+        public virtual int DeleteUserHobbies(Nullable<int> userId, Nullable<int> hobbyId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(int));
+    
+            var hobbyIdParameter = hobbyId.HasValue ?
+                new ObjectParameter("hobbyId", hobbyId) :
+                new ObjectParameter("hobbyId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteUserHobbies", userIdParameter, hobbyIdParameter);
+        }
+    
+        public virtual int DeleteUserInterest(Nullable<int> userId, Nullable<int> interestId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(int));
+    
+            var interestIdParameter = interestId.HasValue ?
+                new ObjectParameter("interestId", interestId) :
+                new ObjectParameter("interestId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteUserInterest", userIdParameter, interestIdParameter);
+        }
+    
+        public virtual int DeleteUserSkills(Nullable<int> userId, Nullable<int> skillId)
+        {
+            var userIdParameter = userId.HasValue ?
+                new ObjectParameter("userId", userId) :
+                new ObjectParameter("userId", typeof(int));
+    
+            var skillIdParameter = skillId.HasValue ?
+                new ObjectParameter("skillId", skillId) :
+                new ObjectParameter("skillId", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteUserSkills", userIdParameter, skillIdParameter);
+        }
+    
         public virtual ObjectResult<GetAllCategory_Result> GetAllCategory()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetAllCategory_Result>("GetAllCategory");
@@ -798,6 +837,39 @@ namespace APIs.Models
                 new ObjectParameter("univDegId", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<UniversityDegreeById_Result>("UniversityDegreeById", univDegIdParameter);
+        }
+    
+        public virtual int UpdateUserInfo(string email, string firstName, string secondName, Nullable<decimal> percentage, Nullable<decimal> annualBudget, Nullable<int> location, Nullable<int> qualification)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var firstNameParameter = firstName != null ?
+                new ObjectParameter("firstName", firstName) :
+                new ObjectParameter("firstName", typeof(string));
+    
+            var secondNameParameter = secondName != null ?
+                new ObjectParameter("secondName", secondName) :
+                new ObjectParameter("secondName", typeof(string));
+    
+            var percentageParameter = percentage.HasValue ?
+                new ObjectParameter("percentage", percentage) :
+                new ObjectParameter("percentage", typeof(decimal));
+    
+            var annualBudgetParameter = annualBudget.HasValue ?
+                new ObjectParameter("annualBudget", annualBudget) :
+                new ObjectParameter("annualBudget", typeof(decimal));
+    
+            var locationParameter = location.HasValue ?
+                new ObjectParameter("location", location) :
+                new ObjectParameter("location", typeof(int));
+    
+            var qualificationParameter = qualification.HasValue ?
+                new ObjectParameter("qualification", qualification) :
+                new ObjectParameter("qualification", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateUserInfo", emailParameter, firstNameParameter, secondNameParameter, percentageParameter, annualBudgetParameter, locationParameter, qualificationParameter);
         }
     
         public virtual ObjectResult<UserAddHobbies_Result> UserAddHobbies(string email, string hobby)
