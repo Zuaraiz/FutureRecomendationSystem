@@ -47,16 +47,19 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent, HobbyDialog } from './profile/profile.component';
-
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 
 
 
+
+
+
+
 @NgModule({
   exports: [
-    
+
     MatAutocompleteModule,
     MatButtonModule,
     MatButtonToggleModule,
@@ -106,24 +109,23 @@ export class DemoMaterialModule { }
     ProfileComponent,
     EditProfileComponent,
     HobbyDialog
-    
-    
-    
-   
   ],
   imports: [
     BrowserModule,
-      AppRoutingModule,
+    AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    DemoMaterialModule
-    
+    DemoMaterialModule,
+    FormsModule,
+    HttpModule
 
- 
   ],
   providers: [
+
     AuthService
     , UserService
+
+
   ],
   bootstrap: [AppComponent]
 })

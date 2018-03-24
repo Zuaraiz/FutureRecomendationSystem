@@ -140,9 +140,10 @@ namespace Server.Controllers
         }
 
 
+
         [HttpGet]
         [Route("api/get/locations")]
-        public List<GetAllLocation_Result> AllLocation([FromBody] UserSkill skill)
+        public List<GetAllLocation_Result> AllLocation()
 
         {
             FRDBEntities db = new FRDBEntities();
@@ -154,7 +155,7 @@ namespace Server.Controllers
 
         [HttpGet]
         [Route("api/get/qualification")]
-        public List<GetAllPreDegree_Result> AllQual([FromBody] UserSkill skill)
+        public List<GetAllPreDegree_Result> AllQual()
 
         {
             FRDBEntities db = new FRDBEntities();
@@ -164,7 +165,90 @@ namespace Server.Controllers
             }
         }
 
+        [HttpPost]
+        [Route("api/get/skills")]
+        public List<GetAllSkill_Result> skills([FromBody] UserSkills skill)
+
+        {
+            List<GetAllSkill_Result> temp = new List<GetAllSkill_Result>();
+            List<GetAllSkill_Result> result = new List<GetAllSkill_Result>();
+            List<GetUserSkills_Result> checkList = new List<GetUserSkills_Result>();
+            FRDBEntities db = new FRDBEntities();
+            using (db)
+            
+            {
+                checkList = db.GetUserSkills(skill.email).ToList<GetUserSkills_Result>();
+              
+                temp= db.GetAllSkill().ToList<GetAllSkill_Result>();
+                foreach(GetAllSkill_Result obj in temp)
+                {
+                    if (!(checkList.Any(x => x.name == obj.name)))
+                        {
+                        result.Add(obj);
+
+                    }
+                   
+                }
+                return result;
+            }
+        }
+
+        [HttpPost]
+        [Route("api/get/interests")]
+        public List<GetAllInterest_Result> interest([FromBody] UserSkills skill)
+
+        {
+            List<GetAllInterest_Result> temp = new List<GetAllInterest_Result>();
+            List<GetAllInterest_Result> result = new List<GetAllInterest_Result>();
+            List<GetUserInterests_Result> checkList = new List<GetUserInterests_Result>();
+
+            FRDBEntities db = new FRDBEntities();
+            using (db)
+            {
+                checkList = db.GetUserInterests(skill.email).ToList<GetUserInterests_Result>();
+
+                temp = db.GetAllInterest().ToList<GetAllInterest_Result>();
+                foreach (GetAllInterest_Result obj in temp)
+                {
+                    if (!(checkList.Any(x => x.name == obj.name)))
+                    {
+                        result.Add(obj);
+
+                    }
+
+                }
+                return result;
+                
+            }
+        }
+
+        [HttpPost]
+        [Route("api/get/hobbies")]
+        public List<GetAllHobby_Result> hobbies([FromBody] UserSkills skill)
+
+        {
+            List<GetAllHobby_Result> temp = new List<GetAllHobby_Result>();
+            List<GetAllHobby_Result> result = new List<GetAllHobby_Result>();
+            List<string> checkList = new List<string>();
+            FRDBEntities db = new FRDBEntities();
+            using (db)
+            {
+                checkList = db.GetUserHobbies(skill.email).ToList<string>();
+
+                temp = db.GetAllHobby().ToList<GetAllHobby_Result>();
+                foreach (GetAllHobby_Result obj in temp)
+                {
+                    if (!(checkList.Any(x => x == obj.name)))
+                    
+                        result.Add(obj);
+
+                    }
+
+                }
+                return result;
+            }
+        }
 
 
     }
-}
+
