@@ -126,6 +126,7 @@ namespace Server.Controllers
 
            return db1.GetUserInfo(userData.email).FirstOrDefault<GetUserInfo_Result>();
         }
+<<<<<<< HEAD
 
         [HttpPost]
         [Route("api/user/profile")]
@@ -140,6 +141,8 @@ namespace Server.Controllers
         }
 
 
+=======
+>>>>>>> 9685da2a19a15a8662391ad77a32d3084ceb9b55
         [HttpGet]
         [Route("api/get/locations")]
         public List<GetAllLocation_Result> AllLocation([FromBody] UserSkill skill)
