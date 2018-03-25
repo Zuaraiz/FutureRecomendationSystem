@@ -10,6 +10,7 @@ import { option } from './Models/signup'
 import { signup } from './Models/signup'
 
 
+
 @Injectable()
 export class AuthService {
 
