@@ -126,6 +126,10 @@ namespace Server.Controllers
 
            return db1.GetUserInfo(userData.email).FirstOrDefault<GetUserInfo_Result>();
         }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
 
         [HttpPost]
         [Route("api/user/profile")]
@@ -140,7 +144,12 @@ namespace Server.Controllers
         }
 
 
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> 9685da2a19a15a8662391ad77a32d3084ceb9b55
+>>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
         [HttpGet]
         [Route("api/get/locations")]
         public List<GetAllLocation_Result> AllLocation()

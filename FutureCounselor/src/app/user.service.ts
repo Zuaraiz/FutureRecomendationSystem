@@ -5,7 +5,10 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
+<<<<<<< HEAD
 import { signup } from './Models/signup'
+=======
+>>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
 
 
 
@@ -16,6 +19,7 @@ export class UserService {
    
     private Url = 'http://localhost:50175/';  // URL to web api
  
+<<<<<<< HEAD
   constructor(private http: Http) { }
 
   getAllHobbies(email: String): Observable<any> {
@@ -115,6 +119,11 @@ export class UserService {
 
 
   }
+=======
+  constructor() { }
+
+ 
+>>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
   
 
 }
