@@ -2,10 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
+import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule,
@@ -40,13 +37,8 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
+  
 } from '@angular/material';
-<<<<<<< HEAD
-=======
-=======
->>>>>>> 9685da2a19a15a8662391ad77a32d3084ceb9b55
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
-
 
 
 import { AppComponent } from './app.component';
@@ -55,29 +47,12 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
-<<<<<<< HEAD
-import { ProfileComponent, HobbyDialog } from './profile/profile.component';
-=======
-<<<<<<< HEAD
-import { ProfileComponent, HobbyDialog } from './profile/profile.component';
-
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
-import { AuthService } from './auth.service';
-import { UserService } from './user.service';
-=======
-import { ProfileComponent } from './profile/profile.component';
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
+import { ProfileComponent, HobbyDialog, InterestDialog, SkillDialog } from './profile/profile.component';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 9685da2a19a15a8662391ad77a32d3084ceb9b55
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
 
 
 
@@ -122,8 +97,9 @@ export class DemoMaterialModule { }
 
 
 @NgModule({
-  entryComponents: [EditProfileComponent,
-    HobbyDialog],
+  entryComponents: [EditProfileComponent, ProfileComponent,
+    HobbyDialog,InterestDialog,
+    SkillDialog],
   declarations: [
     AppComponent,
     SignInComponent,
@@ -132,8 +108,10 @@ export class DemoMaterialModule { }
     HomeComponent,
     ProfileComponent,
     EditProfileComponent,
-<<<<<<< HEAD
-    HobbyDialog
+
+    HobbyDialog,
+    InterestDialog,
+    SkillDialog
   ],
   imports: [
     BrowserModule,
@@ -141,48 +119,16 @@ export class DemoMaterialModule { }
     FormsModule,
     BrowserAnimationsModule,
     DemoMaterialModule,
-    FormsModule,
-    HttpModule
-=======
-<<<<<<< HEAD
-    HobbyDialog
-    
-    
-    
-=======
->>>>>>> 9685da2a19a15a8662391ad77a32d3084ceb9b55
+    HttpModule,
    
   ],
-  imports: [
-    BrowserModule,
-      AppRoutingModule,
-<<<<<<< HEAD
-    FormsModule,
-    BrowserAnimationsModule,
-    DemoMaterialModule
-    
-=======
-      FormsModule,
-      HttpModule
->>>>>>> 9685da2a19a15a8662391ad77a32d3084ceb9b55
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
 
-  ],
   providers: [
-<<<<<<< HEAD
 
     AuthService
-    , UserService
+    , UserService,
+     CookieService
 
-
-=======
-<<<<<<< HEAD
-    AuthService
-    , UserService
-=======
-      AuthService 
->>>>>>> 9685da2a19a15a8662391ad77a32d3084ceb9b55
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
   ],
   bootstrap: [AppComponent]
 })

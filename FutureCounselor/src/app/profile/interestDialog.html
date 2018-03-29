@@ -1,57 +1,53 @@
-<div class="modal fade" id="interestModal" role="dialog">
-  <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Add Interest</h4>
+
+<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <div >
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <p style="padding-left: 4em">IT</p>
       </div>
-      <div class="modal-body" style="    height: 25em; overflow-y: scroll;">
-        <div class="row">
-          <div class="col-lg-3 col-md-3">
-            <p style="padding-left: 4em">IT</p>
-          </div>
-          <div class="col-lg-4 col-md-4" style="margin-top: -0.3em;padding-left: 3em">
-            <select class="form-control" style="    width: 100%;">
-              <option>High</option>
-              <option selected>Medium</option>
-              <option>Moderate</option>
-              <option>Low</option>
-              <option>very Low</option>
-            </select>
+      <div class="col-lg-4 col-md-4" style="margin-top: -0.3em;padding-left: 3em">
+        <select class="form-control" style="    width: 100%;">
+          <option>High</option>
+          <option selected>Medium</option>
+          <option>Moderate</option>
+          <option>Low</option>
+          <option>very Low</option>
+        </select>
 
-          </div>
-          <div class="col-lg-5 col-md-5" style="padding-left: 7em;">
-
-            <a style="    margin-top: 0.7em;"><i class=" fa fa-plus-circle" aria-hidden="true"></i>Add</a>
-          </div>
-        </div>
-        <hr>
-        <div class="row">
-          <div class="col-lg-3 col-md-3">
-            <p style="padding-left: 4em">Space Tech</p>
-          </div>
-          <div class="col-lg-4 col-md-4" style="margin-top: -0.3em;padding-left: 3em">
-            <select class="form-control" style="    width: 100%;">
-              <option>High</option>
-              <option>Medium</option>
-              <option>Moderate</option>
-              <option selected>Low</option>
-              <option>very Low</option>
-            </select>
-
-          </div>
-          <div class="col-lg-5 col-md-5" style="padding-left: 7em;">
-
-            <a style="    margin-top: 0.7em;"><i class=" fa fa-plus-circle" aria-hidden="true"></i>Add</a>
-          </div>
-        </div>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="col-lg-5 col-md-5" style="padding-left: 7em;">
+
+        <a style="margin-top: 0.7em;"><i class=" fa fa-plus-circle" aria-hidden="true"></i>Add</a>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-3 col-md-3">
+        <p style="padding-left: 4em">Space Tech</p>
+      </div>
+      <div class="col-lg-4 col-md-4" style="margin-top: -0.3em;padding-left: 3em">
+        <select class="form-control" style="    width: 100%;">
+          <option>High</option>
+          <option>Medium</option>
+          <option>Moderate</option>
+          <option selected>Low</option>
+          <option>very Low</option>
+        </select>
+
+      </div>
+      <div class="col-lg-5 col-md-5" style="padding-left: 7em;">
+
+        <a style="    margin-top: 0.7em;"><i class=" fa fa-plus-circle" aria-hidden="true"></i>Add</a>
       </div>
     </div>
 
   </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
 </div>

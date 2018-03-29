@@ -1,4 +1,4 @@
-﻿import { NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
@@ -10,7 +10,7 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 const routes: Routes = [
-{path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+{path: '', redirectTo: '/dashboard/home', pathMatch: 'full'},
     { path: 'signIn',  component: SignInComponent},
     { path: 'signUp',  component: SignUpComponent },
     {path: 'dashboard',  component:DashboardComponent,

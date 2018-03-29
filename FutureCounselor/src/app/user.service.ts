@@ -5,10 +5,10 @@ import { Observable } from 'rxjs';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import { signup } from './Models/signup'
-=======
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
+//=======
+//>>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
 
 
 
@@ -19,31 +19,60 @@ export class UserService {
    
     private Url = 'http://localhost:50175/';  // URL to web api
  
-<<<<<<< HEAD
+//<<<<<<< HEAD
   constructor(private http: Http) { }
 
-  getAllHobbies(email: String): Observable<any> {
+  getAllHobbies(email: String): Observable<any[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let data = { email: email }
-    return this.http.post(this.Url + 'api/get/hobbies', data, options).map(this.extractData)
-      .catch(this.handleErrorObservable);
+    return this.http.post(this.Url + 'api/get/hobbies', data, options).map((response: Response) => {
+      return <any[]>response.json();
+    }).catch(this.handleErrorObservable);
   }
-  getAllInterests(email: String): Observable<any> {
+  getAllInterests(email: String): Observable<any[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let data = { email: email }
-    return this.http.post(this.Url + 'api/get/interests', data, options).map(this.extractData)
-      .catch(this.handleErrorObservable);
+    return this.http.post(this.Url + 'api/get/interests', options).map((response: Response) => {
+      return <any[]>response.json();
+    }).catch(this.handleErrorObservable);
   }
-  getAllSkills(email: String): Observable<any> {
+  getAllSkills(email: String): Observable<any[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let data = { email: email }
-    return this.http.post(this.Url + 'api/get/skills', data, options).map(this.extractData)
-      .catch(this.handleErrorObservable);
+    return this.http.post(this.Url + 'api/get/skills', data, options).map((response: Response) => {
+      return <any[]>response.json();
+    }).catch(this.handleErrorObservable);
   }
 
+
+
+  getUserHobbies(email: String): Observable<any[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let data = { email: email }
+    return this.http.post(this.Url + 'api/user/hobbies', data, options).map((response: Response) => {
+      return <any[]>response.json();
+    }).catch(this.handleErrorObservable);
+  }
+  getUserInterests(email: String): Observable<any[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let data = { email: email }
+    return this.http.post(this.Url + 'api/user/interests', data, options).map((response: Response) => {
+      return <any[]>response.json();
+    }).catch(this.handleErrorObservable);
+  }
+  getUserSkills(email: String): Observable<any[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let data = { email: email }
+    return this.http.post(this.Url + 'api/user/skills', data, options).map((response: Response) => {
+      return <any[]>response.json();
+    }).catch(this.handleErrorObservable);
+  }
 
   getUserProfile(email: String): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -119,11 +148,6 @@ export class UserService {
 
 
   }
-=======
-  constructor() { }
 
- 
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
-  
 
 }

@@ -18,8 +18,10 @@ namespace Server.Controllers
 
         {
             FRDBEntities db = new FRDBEntities();
-            return db.UserAddSkills(skill.email, skill.id, skill.rating).ToList<UserAddSkills_Result>();
-
+            using (db)
+            {
+                return db.UserAddSkills(skill.email, skill.id, skill.rating).ToList<UserAddSkills_Result>();
+                }
         }
         [HttpPost]
         [Route("api/add/Interests")]
@@ -27,8 +29,10 @@ namespace Server.Controllers
 
         {
             FRDBEntities db = new FRDBEntities();
-            return db.UserAddInterests(interest.email, interest.id, interest.rating).ToList<UserAddInterests_Result>();
-
+            using (db)
+            {
+                return db.UserAddInterests(interest.email, interest.id, interest.rating).ToList<UserAddInterests_Result>();
+            }
         }
         [HttpPost]
         [Route("api/add/hobbies")]
@@ -36,15 +40,23 @@ namespace Server.Controllers
 
         {
             FRDBEntities db = new FRDBEntities();
-            GetHobbyById_Result userHobby = db.GetHobbyById(hobby.id).FirstOrDefault<GetHobbyById_Result>();
-            return db.UserAddHobbies(hobby.email, userHobby.name).ToList<UserAddHobbies_Result>();
+            FRDBEntities db1 = new FRDBEntities();
+            GetHobbyById_Result userHobby;
+            using (db)
+            {
+                 userHobby = db.GetHobbyById(hobby.id).FirstOrDefault<GetHobbyById_Result>();
+            }
+            using (db1)
+            {
+                return db1.UserAddHobbies(hobby.email, userHobby.name).ToList<UserAddHobbies_Result>();
+            }
         }
 
 
 
         [HttpPost]
         [Route("api/user/skills")]
-        public List<GetUserSkills_Result> Skills([FromBody] UserSkills skill)
+        public List<GetUserSkills_Result> Skills([FromBody] CustomModels skill)
 
         {
             FRDBEntities db = new FRDBEntities();
@@ -53,7 +65,7 @@ namespace Server.Controllers
         }
         [HttpPost]
         [Route("api/user/interests")]
-        public List<GetUserInterests_Result> Interests([FromBody] UserInterests interest)
+        public List<GetUserInterests_Result> Interests([FromBody] CustomModels interest)
 
         {
             FRDBEntities db = new FRDBEntities();
@@ -62,11 +74,14 @@ namespace Server.Controllers
         }
         [HttpPost]
         [Route("api/user/hobbies")]
-        public List<String> Hobbies([FromBody] UserHobbies hobby)
+        public List<String> Hobbies([FromBody] CustomModels hobby)
 
         {
             FRDBEntities db = new FRDBEntities();
-            return db.GetUserHobbies(hobby.email).ToList<String>();
+            using (db)
+            {
+                return db.GetUserHobbies(hobby.email).ToList<String>();
+            }
         }
 
 
@@ -90,9 +105,20 @@ namespace Server.Controllers
 
         {
             FRDBEntities db = new FRDBEntities();
-            using (db)
+            FRDBEntities db1 = new FRDBEntities();
+            int id;
+            using (db1)
+
             {
-                return db.DeleteUserHobbies(hobby.user, hobby.id);
+               
+                    int? i =db1.GetUserId(hobby.email).FirstOrDefault();
+                id = i ?? 0;
+            }
+                using (db)
+
+            {
+
+                return db.DeleteUserHobbies(id, hobby.id);
             }
 
 
@@ -126,10 +152,7 @@ namespace Server.Controllers
 
            return db1.GetUserInfo(userData.email).FirstOrDefault<GetUserInfo_Result>();
         }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
+
 
         [HttpPost]
         [Route("api/user/profile")]
@@ -143,13 +166,6 @@ namespace Server.Controllers
 
         }
 
-
-<<<<<<< HEAD
-
-=======
-=======
->>>>>>> 9685da2a19a15a8662391ad77a32d3084ceb9b55
->>>>>>> c8fd6a85c0068b6ebdb11a1b832a23a20894ada2
         [HttpGet]
         [Route("api/get/locations")]
         public List<GetAllLocation_Result> AllLocation()
@@ -255,7 +271,7 @@ namespace Server.Controllers
 
                 }
                 return result;
-            }
+                 }
         }
 
 

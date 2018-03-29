@@ -8,6 +8,7 @@ import 'rxjs/add/operator/toPromise';
 import { user } from './Models/user'
 import { option } from './Models/signup'
 import { signup } from './Models/signup'
+import { CookieService } from 'angular2-cookie/core';
 
 
 
@@ -19,7 +20,18 @@ export class AuthService {
     private Url = 'http://localhost:50175/';  // URL to web api
  
   constructor(
-    private http: Http) { }
+    private http: Http, private _cookieService: CookieService) { }
+
+  IsLoggedIn(): boolean {
+
+    if (this._cookieService !== null && typeof this._cookieService !== "undefined") {
+      return true;
+    }
+    else {
+      return false;
+
+    }
+  }
 
   SignIn(email: String, password: String): Observable<user> {
       let headers = new Headers({ 'Content-Type': 'application/json'});
