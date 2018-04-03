@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router, public auth: AuthService) { }
 
   ngOnInit() {
+    if (this.auth.IsLoggedIn()) {
+      this.router.navigate(['/dashboard/editProfile']);
+    }
+    else {
+      this.router.navigate(['/signIn']);
+    }
   }
 
 }

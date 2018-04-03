@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { Options } from '../Models/user';
 
 
 
@@ -19,13 +20,14 @@ export class ProfileComponent implements OnInit {
   userInfo: any;
   hobbyList: any[] = [];
   skillList: any[] = [];
+  tempSkillList: Options[] = [];
   interestList: any[] = [];
   hobbyUserList: any[] = [];
   skillUserList: any[] = [];
   interestUserList: any[] = [];
 
 
-  constructor(private auth: AuthService,private service :UserService ,public dialog: MatDialog) { }
+  constructor(private auth: AuthService, private service: UserService, public dialog: MatDialog, public router: Router) { }
 
 
   openHobbyDialog(): void {
@@ -101,9 +103,24 @@ export class ProfileComponent implements OnInit {
   getskilllist(): void {
     this.service.getAllSkills(this.email).subscribe
       (any => this.skillList = any,
-      error => this.errorMessage = <any>error);
+      error => this.errorMessage = <any>error, () => this.tempSkillList=this.getListData(this.skillList));
+ 
+  }
+  getListData(list:any[]): Options[] {
+    let array : Options[] = [];
+    list.forEach(function (value) {
+      let temp: Options;
+      temp.id = value.id;
+      temp.name = value.name;
+      temp.rating = 20;
+      temp.ratinglabel = 'very low';
+      array.push(temp);
+    });
+    return array;
 
   }
+
+
   getuserskilllist(): void {
     this.service.getUserSkills(this.email).subscribe
       (any => this.skillUserList = any,
@@ -119,7 +136,10 @@ export class ProfileComponent implements OnInit {
     this.getuserintersetlist();
     this.getuserskilllist();
     if (this.auth.IsLoggedIn()) {
-      this.router.navigate(['dashboard/home']);
+      this.router.navigate(['/dashboard/profile']);
+    }
+    else {
+      this.router.navigate(['/signIn']);
     }
   }
 
@@ -181,7 +201,7 @@ export class SkillDialog implements OnInit {
   
   AddSkill(input: any): void {
     const selectedValue: number = 20;
-    this.service.addSkill(this.email, input.id, selectedValue).subscribe(
+    this.service.addSkill(this.email, input.id, input.rating).subscribe(
       error => this.errorMessage = <any>error);
     this.deleteMsg(input);
 

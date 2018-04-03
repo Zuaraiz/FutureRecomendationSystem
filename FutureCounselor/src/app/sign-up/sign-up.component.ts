@@ -1,4 +1,4 @@
-﻿import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { signup } from '../Models/signup';
 import { option } from '../Models/signup';
@@ -24,7 +24,12 @@ export class SignUpComponent implements OnInit {
     ) {
         this.getLocations();
         this.getPreDegree();
-
+      if (this.auth.IsLoggedIn()) {
+        this.router.navigate(['/dashboard/home']);
+      }
+      else {
+        this.router.navigate(['/signUp']);
+      }
           
   }
     signUp(): void {

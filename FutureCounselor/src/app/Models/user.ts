@@ -1,4 +1,4 @@
-﻿export class user {
+export class user {
    id: number;
    firstname: string;
    secondname: string;
@@ -9,4 +9,16 @@
    
    constructor() { 
    }
+}
+
+
+export class Options {
+  id: number;
+  name: string;
+  rating: number;
+  ratinglabel: string;
+ 
+
+  constructor() {
+  }
 } 

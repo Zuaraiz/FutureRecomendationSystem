@@ -10,11 +10,11 @@
             <p style="padding-left: 4em">{{item.name}}</p>
           </div>
           <div class="col-lg-4 col-md-4" style="margin-top: -0.3em;padding-left: 3em">
-            <mat-select placeholder="Rating" [(ngModel)]="selectedValue" name="rate">
-              <mat-option *ngFor="let rate of rating" [value]="rate.value">
-                {{rate.viewValue}}
-              </mat-option>
-            </mat-select>
+           
+              <select placeholder="Rating" [(ngModel)]=item.rating [ngModelOptions]="{standalone: true}" class="form-control" style="    width: 100%;">
+                <option *ngFor="let rate of rating; " [selected]="rate[0]" [value]="rate.value" > {{rate.viewValue}}</option>
+              </select>
+            
 
           </div>
           <div class="col-lg-5 col-md-5" style="padding-left: 7em;">
