@@ -4,6 +4,7 @@ import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Options } from '../Models/user';
+import { CookieService } from 'angular2-cookie/core';
 
 
 
@@ -14,8 +15,8 @@ import { Options } from '../Models/user';
 })
 export class ProfileComponent implements OnInit {
   errorMessage: string='asss';
-  email: string = 'usman@gmail.com';
-  name: string = 'asss';
+  email: string = '';
+  name: string = '';
   animal: string = 'asss';
   userInfo: any;
   hobbyList: any[] = [];
@@ -27,7 +28,7 @@ export class ProfileComponent implements OnInit {
   interestUserList: any[] = [];
 
 
-  constructor(private auth: AuthService, private service: UserService, public dialog: MatDialog, public router: Router) { }
+    constructor(private auth: AuthService, private service: UserService, public dialog: MatDialog, public router: Router, private _cookieService: CookieService) { }
 
 
   openHobbyDialog(): void {
@@ -72,6 +73,7 @@ export class ProfileComponent implements OnInit {
     this.service.getUserProfile(this.email).subscribe
       (any => this.userInfo = any,
       error => this.errorMessage = <any>error);
+
 
   }
 
@@ -131,16 +133,19 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.getskilllist();
     this.getuserhobbylist();
-    this.getuserinfo();
+ 
     this.gethobbylist();
     this.getuserintersetlist();
     this.getuserskilllist();
     if (this.auth.IsLoggedIn()) {
-      this.router.navigate(['/dashboard/profile']);
+        this.router.navigate(['/dashboard/profile']);
+        this.name = this._cookieService.get('name');
+        this.email = this._cookieService.get('email');
     }
     else {
       this.router.navigate(['/signIn']);
-    }
+      }
+      this.getuserinfo();
   }
 
 }

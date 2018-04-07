@@ -23,11 +23,12 @@ export class AuthService {
     private http: Http, private _cookieService: CookieService) { }
 
   IsLoggedIn(): boolean {
-
-    if (this._cookieService !== null && typeof this._cookieService !== "undefined") {
+    let logged: any = this._cookieService.getObject('isSignedIn');
+    if (logged !== null && typeof logged !== "undefined") {
       return true;
     }
-    else {
+    else
+    {
       return false;
 
     }

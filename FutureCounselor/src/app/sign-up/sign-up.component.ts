@@ -38,7 +38,7 @@ export class SignUpComponent implements OnInit {
       this.auth.SignUp(this.userData).subscribe
           (number => this.sucess = number,
           error => this.errorMessage = <any>error);
-      this.router.navigate(['dashboard']);
+      this.router.navigate(['/signIn']);
       
   }
   getLocations(): void {

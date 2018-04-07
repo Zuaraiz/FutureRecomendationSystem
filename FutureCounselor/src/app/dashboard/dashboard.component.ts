@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'angular2-cookie/core';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+    name: string = '';
+    constructor(private _cookieService: CookieService) { }
 
   ngOnInit() {
-	  
+      
+          this.name = this._cookieService.get('name');
+          
+     
   }
 
 }
