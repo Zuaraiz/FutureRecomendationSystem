@@ -111,6 +111,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user" Type="int" Nullable="false" />
           <Property Name="major" Type="int" />
+          <Property Name="rating" Type="int" />
         </EntityType>
         <EntityType Name="Skill">
           <Key>
@@ -714,6 +715,7 @@
         <Function Name="GetSkillByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="skillName" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="GetTrainingData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetUniversityById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="uniId" Type="int" Mode="In" />
         </Function>
@@ -1099,6 +1101,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user" Type="Int32" Nullable="false" />
           <Property Name="major" Type="Int32" />
+          <Property Name="rating" Type="Int32" />
           <NavigationProperty Name="Major1" Relationship="Self.FK_Recommendation_Major" FromRole="Recommendation" ToRole="Major" />
           <NavigationProperty Name="User1" Relationship="Self.FK_Recommendation_User" FromRole="Recommendation" ToRole="User" />
         </EntityType>
@@ -1864,6 +1867,7 @@
           <FunctionImport Name="GetSkillByName" ReturnType="Collection(FRDBModel.GetSkillByName_Result)">
             <Parameter Name="skillName" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GetTrainingData" ReturnType="Collection(FRDBModel.GetTrainingData_Result)" />
           <FunctionImport Name="GetUniversityById" ReturnType="Collection(FRDBModel.GetUniversityById_Result)">
             <Parameter Name="uniId" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -2262,6 +2266,13 @@
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
         </ComplexType>
+        <ComplexType Name="GetTrainingData_Result">
+          <Property Type="Int32" Name="MajorLabel" Nullable="false" />
+          <Property Type="String" Name="skill" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="skillrate" Nullable="false" />
+          <Property Type="String" Name="interest" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="interestrate" Nullable="false" />
+        </ComplexType>
         <ComplexType Name="GetUniversityById_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
@@ -2492,6 +2503,7 @@
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="user" ColumnName="user" />
                 <ScalarProperty Name="major" ColumnName="major" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -3113,6 +3125,17 @@
               <ComplexTypeMapping TypeName="FRDBModel.GetSkillByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTrainingData" FunctionName="FRDBModel.Store.GetTrainingData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FRDBModel.GetTrainingData_Result">
+                <ScalarProperty Name="MajorLabel" ColumnName="MajorLabel" />
+                <ScalarProperty Name="skill" ColumnName="skill" />
+                <ScalarProperty Name="skillrate" ColumnName="skillrate" />
+                <ScalarProperty Name="interest" ColumnName="interest" />
+                <ScalarProperty Name="interestrate" ColumnName="interestrate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

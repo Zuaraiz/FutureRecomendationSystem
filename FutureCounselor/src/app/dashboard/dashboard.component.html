@@ -21,7 +21,7 @@
                             <i class="fa fa-user fa-fw"></i> {{name}} <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu dropdown-user">
-                            <li><a routerLink="/signIn"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                            <li><a (click)="signOut()"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                             </li>
                         </ul>
                     </li>

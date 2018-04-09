@@ -230,7 +230,7 @@ namespace Server.Controllers
             FRDBEntities db = new FRDBEntities();
             using (db)
             {
-                checkList = db.GetUserInterests(skill.email).ToList<GetUserInterests_Result>();
+             checkList = db.GetUserInterests(skill.email).ToList<GetUserInterests_Result>();
 
                 temp = db.GetAllInterest().ToList<GetAllInterest_Result>();
                 foreach (GetAllInterest_Result obj in temp)
@@ -242,7 +242,7 @@ namespace Server.Controllers
                     }
 
                 }
-                return result;
+             return result;
                 
             }
         }

@@ -34,7 +34,7 @@ export class UserService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let data = { email: email }
-    return this.http.post(this.Url + 'api/get/interests', options).map((response: Response) => {
+    return this.http.post(this.Url + 'api/get/interests',data, options).map((response: Response) => {
       return <any[]>response.json();
     }).catch(this.handleErrorObservable);
   }
@@ -81,10 +81,10 @@ export class UserService {
     return this.http.post(this.Url + 'api/user/profile', data, options).map(this.extractData)
       .catch(this.handleErrorObservable);
   }
-  editUserProfile(userData: signup): Observable<any> {
+  editUserProfile(email:string,userData: any): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let data = { email: userData.email, firstName: userData.firstname, lastName: userData.lastname, percentage: userData.percentage, annualBudget: userData.annualBudget, location: userData.location, qualification:userData.qualification }
+    let data = { email: email, firstName: userData.firstName, lastName: userData.lastName, percentage: userData.percentage, annualBudget: userData.annualBudget, location: userData.location, qualification:userData.qualification }
     return this.http.post(this.Url + 'api/edit/profile', data, options).map(this.extractData)
       .catch(this.handleErrorObservable);
   }

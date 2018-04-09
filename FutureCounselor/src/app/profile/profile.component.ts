@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
 import { UserService } from '../user.service';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { Options } from '../Models/user';
 import { CookieService } from 'angular2-cookie/core';
+import { MatAccordion } from '@angular/material';
 
 
 
@@ -14,10 +15,10 @@ import { CookieService } from 'angular2-cookie/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  errorMessage: string='asss';
+  errorMessage: string = '';
   email: string = '';
-  name: string = '';
-  animal: string = 'asss';
+ 
+
   userInfo: any;
   hobbyList: any[] = [];
   skillList: any[] = [];
@@ -28,13 +29,17 @@ export class ProfileComponent implements OnInit {
   interestUserList: any[] = [];
 
 
-    constructor(private auth: AuthService, private service: UserService, public dialog: MatDialog, public router: Router, private _cookieService: CookieService) { }
+  constructor(private auth: AuthService, private service: UserService, public dialog: MatDialog, public router: Router, private _cookieService: CookieService) { }
 
 
   openHobbyDialog(): void {
    
-  
+
+    
+
     let dialogRef = this.dialog.open(HobbyDialog, {
+    
+     
 
       data: { result: this.hobbyList }
     });
@@ -45,6 +50,7 @@ export class ProfileComponent implements OnInit {
       this.gethobbylist();
     });
   }
+
   openSkillDialog(): void {
     let dialogRef = this.dialog.open(SkillDialog, {
 
@@ -60,12 +66,13 @@ export class ProfileComponent implements OnInit {
   openInterestDialog(): void {
     let dialogRef = this.dialog.open(InterestDialog, {
 
-      data: { name: this.name, animal: this.animal }
+      data: { result: this.interestList }
     });
 
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-      this.animal = result;
+      this.getintersetlist();
+      this.getuserintersetlist();
     });
   }
 
@@ -73,7 +80,6 @@ export class ProfileComponent implements OnInit {
     this.service.getUserProfile(this.email).subscribe
       (any => this.userInfo = any,
       error => this.errorMessage = <any>error);
-
 
   }
 
@@ -90,6 +96,8 @@ export class ProfileComponent implements OnInit {
       error => this.errorMessage = <any>error);
 
   }
+
+
   getintersetlist(): void {
     this.service.getAllInterests(this.email).subscribe
       (any => this.interestList = any,
@@ -102,27 +110,22 @@ export class ProfileComponent implements OnInit {
       error => this.errorMessage = <any>error);
 
   }
+
+
   getskilllist(): void {
     this.service.getAllSkills(this.email).subscribe
       (any => this.skillList = any,
-      error => this.errorMessage = <any>error, () => this.tempSkillList=this.getListData(this.skillList));
- 
-  }
-  getListData(list:any[]): Options[] {
-    let array : Options[] = [];
-    list.forEach(function (value) {
-      let temp: Options;
-      temp.id = value.id;
-      temp.name = value.name;
-      temp.rating = 20;
-      temp.ratinglabel = 'very low';
-      array.push(temp);
-    });
-    return array;
+      error => this.errorMessage = <any>error );
+    //this.skillList.forEach(function (value) {
+    //  let temp: Options;
+    //  temp.id = value.id;
+    //  temp.name = value.name;
+    //  temp.rating = 20;
+    //  temp.ratinglabel = 'very low';
+    //  this.tempSkillList.push(temp);
+    //});
 
   }
-
-
   getuserskilllist(): void {
     this.service.getUserSkills(this.email).subscribe
       (any => this.skillUserList = any,
@@ -130,41 +133,58 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  ngOnInit() {
-    this.getskilllist();
-    this.getuserhobbylist();
+
+
+  getListData(): void {
  
-    this.gethobbylist();
-    this.getuserintersetlist();
-    this.getuserskilllist();
+    
+
+  }
+
+
+  
+
+  ngOnInit() {
+    
     if (this.auth.IsLoggedIn()) {
-        this.router.navigate(['/dashboard/profile']);
-        this.name = this._cookieService.get('name');
-        this.email = this._cookieService.get('email');
+      this.router.navigate(['/dashboard/profile']);
+      this.email = this._cookieService.get('email');
     }
     else {
       this.router.navigate(['/signIn']);
-      }
-      this.getuserinfo();
+    }
+    this.getuserinfo();
+    this.getskilllist();
+    this.getuserhobbylist();
+
+    this.gethobbylist();
+    this.getuserintersetlist();
+    this.getuserskilllist();
+    this.getintersetlist();
+    this.getuserintersetlist();
   }
 
 }
+
+
+
+
 @Component({
- 
+
   templateUrl: './hobbyDialog.html',
 })
 export class HobbyDialog implements OnInit {
   errorMessage: string = 'asss';
-  email: string = 'usman@gmail.com';
+  email: string = this._cookieService.get('email');
   constructor(private service: UserService,
     public dialogRef: MatDialogRef<HobbyDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any,private _cookieService: CookieService) { }
 
-  AddHobby(input:any ): void {
-    this.service.addhobby(this.email,input.id).subscribe (
+  AddHobby(input: any): void {
+    this.service.addhobby(this.email, input.id).subscribe(
       error => this.errorMessage = <any>error);
     this.deleteMsg(input);
-    
+
 
   }
   deleteMsg(msg: any) {
@@ -174,7 +194,7 @@ export class HobbyDialog implements OnInit {
     }
   }
   onNoClick(): void {
-    
+
     this.dialogRef.close();
   }
   ngOnInit() {
@@ -188,8 +208,8 @@ export class HobbyDialog implements OnInit {
 })
 export class SkillDialog implements OnInit {
   errorMessage: string = 'asss';
-  email: string = 'usman@gmail.com';
-  rating:any = [
+  email: string = this._cookieService.get('email');
+  rating: any = [
     { value: 20, viewValue: 'Very Low' },
     { value: 40, viewValue: 'Low' },
     { value: 60, viewValue: 'Moderate' },
@@ -201,9 +221,9 @@ export class SkillDialog implements OnInit {
 
   constructor(private service: UserService,
     public dialogRef: MatDialogRef<SkillDialog>,
-    @Inject(MAT_DIALOG_DATA) public data: any) { }
+    @Inject(MAT_DIALOG_DATA) public data: any, private _cookieService: CookieService) { }
 
-  
+
   AddSkill(input: any): void {
     const selectedValue: number = 20;
     this.service.addSkill(this.email, input.id, input.rating).subscribe(
@@ -225,15 +245,43 @@ export class SkillDialog implements OnInit {
   ngOnInit() {
   }
 }
+
+
 @Component({
 
   templateUrl: './interestDialog.html',
 })
 export class InterestDialog implements OnInit {
+  errorMessage: string = 'asss';
+  email: string = this._cookieService.get('email');
+  rating: any = [
+    { value: 20, viewValue: 'Very Low' },
+    { value: 40, viewValue: 'Low' },
+    { value: 60, viewValue: 'Moderate' },
+    { value: 80, viewValue: 'High' },
+    { value: 100, viewValue: 'Very High' }
+  ];
 
   constructor(
-    public dialogRef: MatDialogRef<InterestDialog>) { }
+    private service: UserService,
+    public dialogRef: MatDialogRef<SkillDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private _cookieService: CookieService) { }
 
+
+  AddInterest(input: any): void {
+    const selectedValue: number = 20;
+    this.service.addInterest(this.email, input.id, input.rating).subscribe(
+      error => this.errorMessage = <any>error);
+    this.deleteMsg(input);
+
+
+  }
+  deleteMsg(msg: any) {
+    const index: number = this.data.result.indexOf(msg);
+    if (index !== -1) {
+      this.data.result.splice(index, 1);
+    }
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }

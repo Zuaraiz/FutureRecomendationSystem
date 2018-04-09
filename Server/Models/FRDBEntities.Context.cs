@@ -619,6 +619,11 @@ namespace Server.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetSkillByName_Result>("GetSkillByName", skillNameParameter);
         }
     
+        public virtual ObjectResult<GetTrainingData_Result> GetTrainingData()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTrainingData_Result>("GetTrainingData");
+        }
+    
         public virtual ObjectResult<GetUniversityById_Result> GetUniversityById(Nullable<int> uniId)
         {
             var uniIdParameter = uniId.HasValue ?

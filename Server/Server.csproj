@@ -322,6 +322,9 @@
     <Compile Include="Models\GetSkillByName_Result.cs">
       <DependentUpon>FRDBEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GetTrainingData_Result.cs">
+      <DependentUpon>FRDBEntities.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\GetUniversityById_Result.cs">
       <DependentUpon>FRDBEntities.tt</DependentUpon>
     </Compile>

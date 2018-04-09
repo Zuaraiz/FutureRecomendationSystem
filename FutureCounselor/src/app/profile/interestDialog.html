@@ -1,49 +1,30 @@
 
 
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
-<div mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <div >
 
+<h1 mat-dialog-title> Add Interests</h1>
+<div mat-dialog-content>
+  <p>What's your favorite interests?</p>
+  <div *ngFor="let item of data.result;">
     <div class="row">
       <div class="col-lg-3 col-md-3">
-        <p style="padding-left: 4em">IT</p>
+        <p style="padding-left: 4em">{{item.name}}</p>
       </div>
       <div class="col-lg-4 col-md-4" style="margin-top: -0.3em;padding-left: 3em">
-        <select class="form-control" style="    width: 100%;">
-          <option>High</option>
-          <option selected>Medium</option>
-          <option>Moderate</option>
-          <option>Low</option>
-          <option>very Low</option>
+
+        <select placeholder="Rating" [(ngModel)]=item.rating [ngModelOptions]="{standalone: true}" class="form-control" style="    width: 100%;">
+          <option *ngFor="let rate of rating; " [selected]="rate[0]" [value]="rate.value"> {{rate.viewValue}}</option>
         </select>
+
 
       </div>
       <div class="col-lg-5 col-md-5" style="padding-left: 7em;">
-
-        <a style="margin-top: 0.7em;"><i class=" fa fa-plus-circle" aria-hidden="true"></i>Add</a>
+        <button type="button" class="btn btn-link" style="font-size: 8pt ;   margin-top: 0.7em" mat-raised-button (click)="AddInterest(item)">
+          Add
+        </button>
       </div>
     </div>
     <hr>
-    <div class="row">
-      <div class="col-lg-3 col-md-3">
-        <p style="padding-left: 4em">Space Tech</p>
-      </div>
-      <div class="col-lg-4 col-md-4" style="margin-top: -0.3em;padding-left: 3em">
-        <select class="form-control" style="    width: 100%;">
-          <option>High</option>
-          <option>Medium</option>
-          <option>Moderate</option>
-          <option selected>Low</option>
-          <option>very Low</option>
-        </select>
 
-      </div>
-      <div class="col-lg-5 col-md-5" style="padding-left: 7em;">
-
-        <a style="    margin-top: 0.7em;"><i class=" fa fa-plus-circle" aria-hidden="true"></i>Add</a>
-      </div>
-    </div>
 
   </div>
 </div>
@@ -51,3 +32,5 @@
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
 </div>
+
+

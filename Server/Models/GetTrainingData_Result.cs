@@ -10,16 +10,13 @@
 namespace Server.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Recommendation
+    public partial class GetTrainingData_Result
     {
-        public int id { get; set; }
-        public int user { get; set; }
-        public Nullable<int> major { get; set; }
-        public Nullable<int> rating { get; set; }
-    
-        public virtual Major Major1 { get; set; }
-        public virtual User User1 { get; set; }
+        public int MajorLabel { get; set; }
+        public string skill { get; set; }
+        public int skillrate { get; set; }
+        public string interest { get; set; }
+        public int interestrate { get; set; }
     }
 }
