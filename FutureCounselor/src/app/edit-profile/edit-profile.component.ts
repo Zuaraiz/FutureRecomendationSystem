@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { signup } from '../Models/signup';
 import { option } from '../Models/signup';
 import { UserService } from '../user.service';
 import { CookieService } from 'angular2-cookie/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig } from '@angular/material/dialog';
+import { MatAccordion } from '@angular/material';
+
+
 
 import { Router } from '@angular/router';
 @Component({
@@ -13,7 +17,7 @@ import { Router } from '@angular/router';
 })
 export class EditProfileComponent implements OnInit {
 
-  constructor(public router: Router, public auth: AuthService, public service: UserService, private _cookieService: CookieService) { }
+  constructor(public router: Router, public dialog: MatDialog, public auth: AuthService, public service: UserService, private _cookieService: CookieService) { }
   locations: option[] = [];
   predegree: option[] = [];
   hobbyUserList: any[] = [];
@@ -93,4 +97,162 @@ export class EditProfileComponent implements OnInit {
 
   }
 
+
+
+  openHobbyDialog(): void {
+
+
+
+
+    let dialogRef = this.dialog.open(HDialog, {
+
+
+
+      data: { result: this.hobbyUserList }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.getuserhobbylist();
+    
+    });
+  }
+
+  openSkillDialog(): void {
+    let dialogRef = this.dialog.open(SDialog, {
+
+      data: { result: this.skillUserList }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.getuserskilllist();
+     
+    });
+  }
+  openInterestDialog(): void {
+    let dialogRef = this.dialog.open(IDialog, {
+
+      data: { result: this.interestUserList }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+      this.getuserintersetlist();
+    });
+  }
+
+
+}
+
+@Component({
+
+  templateUrl: './hDialog.html',
+})
+export class HDialog implements OnInit {
+  errorMessage: string = 'asss';
+  email: string = '';
+  constructor(private service: UserService,
+    public dialogRef: MatDialogRef<HDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private _cookieService: CookieService) { }
+
+  AddHobby(input: any): void {
+    this.email = this._cookieService.get('email');
+    this.service.deleteHobby(this.email, input).subscribe(
+      error => this.errorMessage = <any>error);
+    this.deleteMsg(input);
+
+
+  }
+  deleteMsg(msg: any) {
+    const index: number = this.data.result.indexOf(msg);
+    if (index !== -1) {
+      this.data.result.splice(index, 1);
+    }
+  }
+  onNoClick(): void {
+
+    this.dialogRef.close();
+  }
+  ngOnInit() {
+  }
+}
+
+
+@Component({
+
+  templateUrl: './sDialog.html',
+})
+export class SDialog implements OnInit {
+  errorMessage: string = 'asss';
+  email: string = ''; 
+
+
+
+
+
+  constructor(private service: UserService,
+    public dialogRef: MatDialogRef<SDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private _cookieService: CookieService) { }
+
+
+  AddSkill(input: any): void {
+    this.email = this._cookieService.get('email');
+    this.service.deleteSkill(this.email, input.name).subscribe(
+      error => this.errorMessage = <any>error);
+    this.deleteMsg(input);
+
+
+  }
+  deleteMsg(msg: any) {
+    const index: number = this.data.result.indexOf(msg);
+    if (index !== -1) {
+      this.data.result.splice(index, 1);
+    }
+  }
+  onNoClick(): void {
+
+    this.dialogRef.close();
+  }
+  ngOnInit() {
+  }
+}
+
+
+@Component({
+
+  templateUrl: './iDialog.html',
+})
+export class IDialog implements OnInit {
+  errorMessage: string = 'asss';
+  email: string = ''; 
+ 
+
+  constructor(
+    private service: UserService,
+    public dialogRef: MatDialogRef<IDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: any, private _cookieService: CookieService) { }
+
+
+  AddInterest(input: any): void {
+    this.email = this._cookieService.get('email');
+
+    this.service.deleteInterest(this.email, input.name).subscribe(
+      error => this.errorMessage = <any>error);
+    this.deleteMsg(input);
+
+
+  }
+  deleteMsg(msg: any) {
+    const index: number = this.data.result.indexOf(msg);
+    if (index !== -1) {
+      this.data.result.splice(index, 1);
+    }
+  }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  ngOnInit() {
+  }
 }

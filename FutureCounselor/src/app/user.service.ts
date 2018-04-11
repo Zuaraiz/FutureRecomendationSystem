@@ -22,6 +22,14 @@ export class UserService {
 //<<<<<<< HEAD
   constructor(private http: Http) { }
 
+  getRecommendation(email: String): Observable<any[]> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let data = { email: email }
+    return this.http.post(this.Url + 'api/get/Recommendation', data, options).map((response: Response) => {
+      return <any[]>response.json();
+    }).catch(this.handleErrorObservable);
+  }
   getAllHobbies(email: String): Observable<any[]> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
@@ -113,24 +121,24 @@ export class UserService {
   }
 
 
-  deleteInterest(uid: number, id: number): Observable<any> {
+  deleteInterest(uid: any, id: any): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let data = { uid: uid,id :id }
+    let data = { email: uid, value: id }
     return this.http.post(this.Url + 'api/delete/interest', data, options).map(this.extractData)
       .catch(this.handleErrorObservable);
   }
-  deleteHobby(uid: number, id: number): Observable<any> {
+  deleteHobby(uid: any, id: any): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let data = { uid: uid, id: id }
+    let data = { email: uid, value: id }
     return this.http.post(this.Url + 'api/delete/Hobby', data, options).map(this.extractData)
       .catch(this.handleErrorObservable);
   }
-  deleteSkill(uid: number, id: number): Observable<any> {
+  deleteSkill(uid: any, id: any): Observable<any> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    let data = { uid: uid, id: id }
+    let data = { email: uid, value: id }
     return this.http.post(this.Url + 'api/delete/skills', data, options).map(this.extractData)
       .catch(this.handleErrorObservable);
   }

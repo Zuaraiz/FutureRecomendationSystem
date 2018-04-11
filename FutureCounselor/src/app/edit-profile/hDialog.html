@@ -1,0 +1,28 @@
+
+
+
+<h1 mat-dialog-title>Delete Hobby</h1>
+<div mat-dialog-content>
+
+  <div *ngFor="let item of data.result;">
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6">
+        <p style="padding-left: 4em">{{item}}</p>
+      </div>
+      <div class="col-lg-6 col-md-6">
+        <button type="button" class="btn btn-link" style="font-size: 8pt ;   margin-top: 0.7em" mat-raised-button (click)="AddHobby(item)">
+          Delete</button>
+         
+</div>
+    </div>
+    <hr>
+
+    
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button  (click)="onNoClick() ">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+
+</div>

@@ -2,6 +2,7 @@
 using MultipartDataMediaFormatter;
 using MultipartDataMediaFormatter.Infrastructure;
 using Owin;
+using Server.Implementation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace Server
     {
         protected void Application_Start()
         {
+            RecommendationUpdate.Start();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             GlobalConfiguration.Configuration.EnsureInitialized();
             GlobalConfiguration.Configuration.Formatters.Add

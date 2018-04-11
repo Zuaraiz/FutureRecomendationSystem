@@ -174,6 +174,23 @@ namespace Server.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AddPreDegree_Result>("AddPreDegree", preDegreeParameter, preLevelParameter);
         }
     
+        public virtual int AddRecommenadation(Nullable<int> uid, Nullable<int> majorId, Nullable<int> rating)
+        {
+            var uidParameter = uid.HasValue ?
+                new ObjectParameter("uid", uid) :
+                new ObjectParameter("uid", typeof(int));
+    
+            var majorIdParameter = majorId.HasValue ?
+                new ObjectParameter("majorId", majorId) :
+                new ObjectParameter("majorId", typeof(int));
+    
+            var ratingParameter = rating.HasValue ?
+                new ObjectParameter("rating", rating) :
+                new ObjectParameter("rating", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddRecommenadation", uidParameter, majorIdParameter, ratingParameter);
+        }
+    
         public virtual ObjectResult<AddSkill_Result> AddSkill(string skill)
         {
             var skillParameter = skill != null ?
@@ -265,6 +282,11 @@ namespace Server.Models
                 new ObjectParameter("major", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<AddUserRecomendation_Result>("AddUserRecomendation", emailParameter, majorParameter);
+        }
+    
+        public virtual int DeleteRecommenadations()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteRecommenadations");
         }
     
         public virtual int DeleteUserHobbies(Nullable<int> userId, Nullable<int> hobbyId)
@@ -601,6 +623,15 @@ namespace Server.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPreDegreeByName_Result>("GetPreDegreeByName", preDegNameParameter);
         }
     
+        public virtual ObjectResult<GetRecommenadation_Result> GetRecommenadation(string email)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetRecommenadation_Result>("GetRecommenadation", emailParameter);
+        }
+    
         public virtual ObjectResult<GetSkillById_Result> GetSkillById(Nullable<int> skillId)
         {
             var skillIdParameter = skillId.HasValue ?
@@ -617,6 +648,11 @@ namespace Server.Models
                 new ObjectParameter("skillName", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetSkillByName_Result>("GetSkillByName", skillNameParameter);
+        }
+    
+        public virtual ObjectResult<GetTestData_Result> GetTestData()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetTestData_Result>("GetTestData");
         }
     
         public virtual ObjectResult<GetTrainingData_Result> GetTrainingData()

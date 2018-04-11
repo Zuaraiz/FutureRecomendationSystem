@@ -580,6 +580,11 @@
           <Parameter Name="preDegree" Type="varchar(max)" Mode="In" />
           <Parameter Name="preLevel" Type="int" Mode="In" />
         </Function>
+        <Function Name="AddRecommenadation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="uid" Type="int" Mode="In" />
+          <Parameter Name="majorId" Type="int" Mode="In" />
+          <Parameter Name="rating" Type="int" Mode="In" />
+        </Function>
         <Function Name="AddSkill" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="skill" Type="varchar" Mode="In" />
         </Function>
@@ -607,6 +612,7 @@
           <Parameter Name="email" Type="varchar" Mode="In" />
           <Parameter Name="major" Type="int" Mode="In" />
         </Function>
+        <Function Name="DeleteRecommenadations" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="DeleteUserHobbies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userId" Type="int" Mode="In" />
           <Parameter Name="hobbyId" Type="int" Mode="In" />
@@ -709,12 +715,16 @@
         <Function Name="GetPreDegreeByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="preDegName" Type="varchar(max)" Mode="In" />
         </Function>
+        <Function Name="GetRecommenadation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="email" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="GetSkillById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="skillId" Type="int" Mode="In" />
         </Function>
         <Function Name="GetSkillByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="skillName" Type="varchar" Mode="In" />
         </Function>
+        <Function Name="GetTestData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetTrainingData" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="GetUniversityById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="uniId" Type="int" Mode="In" />
@@ -1733,6 +1743,11 @@
             <Parameter Name="preDegree" Mode="In" Type="String" />
             <Parameter Name="preLevel" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="AddRecommenadation">
+            <Parameter Name="uid" Mode="In" Type="Int32" />
+            <Parameter Name="majorId" Mode="In" Type="Int32" />
+            <Parameter Name="rating" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="AddSkill" ReturnType="Collection(FRDBModel.AddSkill_Result)">
             <Parameter Name="skill" Mode="In" Type="String" />
           </FunctionImport>
@@ -1760,6 +1775,7 @@
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="major" Mode="In" Type="Int32" />
           </FunctionImport>
+          <FunctionImport Name="DeleteRecommenadations" />
           <FunctionImport Name="DeleteUserHobbies">
             <Parameter Name="userId" Mode="In" Type="Int32" />
             <Parameter Name="hobbyId" Mode="In" Type="Int32" />
@@ -1861,12 +1877,16 @@
           <FunctionImport Name="GetPreDegreeByName" ReturnType="Collection(FRDBModel.GetPreDegreeByName_Result)">
             <Parameter Name="preDegName" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GetRecommenadation" ReturnType="Collection(FRDBModel.GetRecommenadation_Result)">
+            <Parameter Name="email" Mode="In" Type="String" />
+          </FunctionImport>
           <FunctionImport Name="GetSkillById" ReturnType="Collection(FRDBModel.GetSkillById_Result)">
             <Parameter Name="skillId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="GetSkillByName" ReturnType="Collection(FRDBModel.GetSkillByName_Result)">
             <Parameter Name="skillName" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GetTestData" ReturnType="Collection(FRDBModel.GetTestData_Result)" />
           <FunctionImport Name="GetTrainingData" ReturnType="Collection(FRDBModel.GetTrainingData_Result)" />
           <FunctionImport Name="GetUniversityById" ReturnType="Collection(FRDBModel.GetUniversityById_Result)">
             <Parameter Name="uniId" Mode="In" Type="Int32" />
@@ -2258,6 +2278,18 @@
           <Property Type="String" Name="name" Nullable="false" />
           <Property Type="Int32" Name="preLevel" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="GetRecommenadation_Result">
+          <Property Type="Int32" Name="user" Nullable="false" />
+          <Property Type="Int32" Name="degree" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="100" />
+          <Property Type="Decimal" Name="percentage" Nullable="false" Precision="2" Scale="2" />
+          <Property Type="Int32" Name="preDegree" Nullable="false" />
+          <Property Type="Int32" Name="uniId" Nullable="false" />
+          <Property Type="Int32" Name="age" Nullable="false" />
+          <Property Type="Decimal" Name="annualFee" Nullable="false" Precision="19" />
+          <Property Type="Int32" Name="location" Nullable="false" />
+          <Property Type="Int32" Name="rating" Nullable="true" />
+        </ComplexType>
         <ComplexType Name="GetSkillById_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
@@ -2265,6 +2297,13 @@
         <ComplexType Name="GetSkillByName_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
           <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+        </ComplexType>
+        <ComplexType Name="GetTestData_Result">
+          <Property Type="Int32" Name="UserID" Nullable="false" />
+          <Property Type="String" Name="skill" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="skillrate" Nullable="false" />
+          <Property Type="String" Name="interest" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="interestrate" Nullable="false" />
         </ComplexType>
         <ComplexType Name="GetTrainingData_Result">
           <Property Type="Int32" Name="MajorLabel" Nullable="false" />
@@ -2698,6 +2737,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="AddRecommenadation" FunctionName="FRDBModel.Store.AddRecommenadation" />
           <FunctionImportMapping FunctionImportName="AddSkill" FunctionName="FRDBModel.Store.AddSkill">
             <ResultMapping>
               <ComplexTypeMapping TypeName="FRDBModel.AddSkill_Result">
@@ -2751,6 +2791,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DeleteRecommenadations" FunctionName="FRDBModel.Store.DeleteRecommenadations" />
           <FunctionImportMapping FunctionImportName="DeleteUserHobbies" FunctionName="FRDBModel.Store.DeleteUserHobbies" />
           <FunctionImportMapping FunctionImportName="DeleteUserInterest" FunctionName="FRDBModel.Store.DeleteUserInterest" />
           <FunctionImportMapping FunctionImportName="DeleteUserSkills" FunctionName="FRDBModel.Store.DeleteUserSkills" />
@@ -3112,6 +3153,22 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetRecommenadation" FunctionName="FRDBModel.Store.GetRecommenadation">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FRDBModel.GetRecommenadation_Result">
+                <ScalarProperty Name="user" ColumnName="user" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="percentage" ColumnName="percentage" />
+                <ScalarProperty Name="preDegree" ColumnName="preDegree" />
+                <ScalarProperty Name="uniId" ColumnName="uniId" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="annualFee" ColumnName="annualFee" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="rating" ColumnName="rating" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="GetSkillById" FunctionName="FRDBModel.Store.GetSkillById">
             <ResultMapping>
               <ComplexTypeMapping TypeName="FRDBModel.GetSkillById_Result">
@@ -3125,6 +3182,17 @@
               <ComplexTypeMapping TypeName="FRDBModel.GetSkillByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTestData" FunctionName="FRDBModel.Store.GetTestData">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="FRDBModel.GetTestData_Result">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="skill" ColumnName="skill" />
+                <ScalarProperty Name="skillrate" ColumnName="skillrate" />
+                <ScalarProperty Name="interest" ColumnName="interest" />
+                <ScalarProperty Name="interestrate" ColumnName="interestrate" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

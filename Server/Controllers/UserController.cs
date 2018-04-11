@@ -21,7 +21,7 @@ namespace Server.Controllers
             using (db)
             {
                 return db.UserAddSkills(skill.email, skill.id, skill.rating).ToList<UserAddSkills_Result>();
-                }
+            }
         }
         [HttpPost]
         [Route("api/add/Interests")]
@@ -44,7 +44,7 @@ namespace Server.Controllers
             GetHobbyById_Result userHobby;
             using (db)
             {
-                 userHobby = db.GetHobbyById(hobby.id).FirstOrDefault<GetHobbyById_Result>();
+                userHobby = db.GetHobbyById(hobby.id).FirstOrDefault<GetHobbyById_Result>();
             }
             using (db1)
             {
@@ -88,50 +88,73 @@ namespace Server.Controllers
 
         [HttpPost]
         [Route("api/delete/interest")]
-        public int DeleteSkills([FromBody] UserInterest interest)
+        public int DeleteInterset([FromBody] DeleteModels interest)
 
         {
             FRDBEntities db = new FRDBEntities();
+            int interestId, UserId;
+            using (FRDBEntities db1 = new FRDBEntities())
+            {
+                interestId = db1.GetInterestByName(interest.value).FirstOrDefault<GetInterestByName_Result>().id;
+            }
+            using (FRDBEntities db2 = new FRDBEntities())
+            {
+                UserId = db2.GetUserId(interest.email).FirstOrDefault() ?? 0;
+            }
             using (db)
             {
-                return db.DeleteUserInterest(interest.user, interest.id);
+                return db.DeleteUserInterest(UserId, interestId);
             }
 
 
         }
         [HttpPost]
         [Route("api/delete/Hobby")]
-        public int DeleteHobbies([FromBody] UserHobbies hobby)
+        public int DeleteHobbies([FromBody] DeleteModels hobby)
 
         {
             FRDBEntities db = new FRDBEntities();
             FRDBEntities db1 = new FRDBEntities();
-            int id;
+            int id,hid;
             using (db1)
 
             {
-               
-                    int? i =db1.GetUserId(hobby.email).FirstOrDefault();
+
+                int? i = db1.GetUserId(hobby.email).FirstOrDefault();
                 id = i ?? 0;
             }
-                using (db)
+            using (FRDBEntities db2 = new FRDBEntities())
+            {
+                hid = db2.GetHobbyByName(hobby.value).FirstOrDefault<GetHobbyByName_Result>().id;
+            }
+            using (db)
 
             {
 
-                return db.DeleteUserHobbies(id, hobby.id);
+                return db.DeleteUserHobbies(id, hid);
             }
 
 
         }
         [HttpPost]
         [Route("api/delete/skills")]
-        public int DeleteSkills([FromBody] UserSkill skill)
+        public int DeleteSkills([FromBody] DeleteModels skill)
 
         {
+           
             FRDBEntities db = new FRDBEntities();
+            int SkillId, UserId;
+            using (FRDBEntities db1 = new FRDBEntities())
+            {
+                SkillId = db1.GetSkillByName(skill.value).FirstOrDefault<GetSkillByName_Result>().id;
+            }
+            using (FRDBEntities db2 = new FRDBEntities())
+            {
+                UserId = db2.GetUserId(skill.email).FirstOrDefault()??0;
+            }
             using (db)
             {
-                return db.DeleteUserSkills(skill.user, skill.id);
+                return db.DeleteUserSkills(UserId, SkillId);
             }
 
 
@@ -150,13 +173,13 @@ namespace Server.Controllers
             }
 
 
-           return db1.GetUserInfo(userData.email).FirstOrDefault<GetUserInfo_Result>();
+            return db1.GetUserInfo(userData.email).FirstOrDefault<GetUserInfo_Result>();
         }
 
 
         [HttpPost]
         [Route("api/user/profile")]
-        public GetUserInfo_Result UserProfile ([FromBody]CustomModels userData)
+        public GetUserInfo_Result UserProfile([FromBody]CustomModels userData)
         {
             FRDBEntities db = new FRDBEntities();
             using (db)
@@ -200,19 +223,19 @@ namespace Server.Controllers
             List<GetUserSkills_Result> checkList = new List<GetUserSkills_Result>();
             FRDBEntities db = new FRDBEntities();
             using (db)
-            
+
             {
                 checkList = db.GetUserSkills(skill.email).ToList<GetUserSkills_Result>();
-              
-                temp= db.GetAllSkill().ToList<GetAllSkill_Result>();
-                foreach(GetAllSkill_Result obj in temp)
+
+                temp = db.GetAllSkill().ToList<GetAllSkill_Result>();
+                foreach (GetAllSkill_Result obj in temp)
                 {
                     if (!(checkList.Any(x => x.name == obj.name)))
-                        {
+                    {
                         result.Add(obj);
 
                     }
-                   
+
                 }
                 return result;
             }
@@ -230,7 +253,7 @@ namespace Server.Controllers
             FRDBEntities db = new FRDBEntities();
             using (db)
             {
-             checkList = db.GetUserInterests(skill.email).ToList<GetUserInterests_Result>();
+                checkList = db.GetUserInterests(skill.email).ToList<GetUserInterests_Result>();
 
                 temp = db.GetAllInterest().ToList<GetAllInterest_Result>();
                 foreach (GetAllInterest_Result obj in temp)
@@ -242,8 +265,8 @@ namespace Server.Controllers
                     }
 
                 }
-             return result;
-                
+                return result;
+
             }
         }
 
@@ -264,16 +287,68 @@ namespace Server.Controllers
                 foreach (GetAllHobby_Result obj in temp)
                 {
                     if (!(checkList.Any(x => x == obj.name)))
-                    
+
                         result.Add(obj);
 
-                    }
+                }
+
+            }
+            return result;
+        }
+        [HttpPost]
+        [Route("api/get/Recommendation")]
+        public List<RecommendModel> Recommendation([FromBody] UserSkills skill)
+
+        {
+            List<RecommendModel> RecommendResult = new List<RecommendModel>();
+            List<GetRecommenadation_Result> result = new List<GetRecommenadation_Result>();
+            
+            GetUserInfo_Result userInfo = new GetUserInfo_Result();
+            using (FRDBEntities db = new FRDBEntities())
+            {
+                result = db.GetRecommenadation(skill.email).ToList<GetRecommenadation_Result>();
+            }
+
+            using (FRDBEntities db = new FRDBEntities())
+            {
+               userInfo=db.GetUserInfo(skill.email).FirstOrDefault<GetUserInfo_Result>();
+            }
+
+            foreach(var obj in result)
+            {
+                if(obj.annualFee<=userInfo.annualBudget && obj.preDegree== getQualifiaction(userInfo.qualification) && obj.location==getLocation(userInfo.location) &&obj.percentage<=userInfo.percentage && obj.rating>0)
+                {
+                    RecommendResult.Add(new RecommendModel { UniversityName = getUniversity(obj.uniId).name, Degree = getDegree(obj.degree).name, fee = obj.annualFee, rating = obj.rating ?? 0 });
 
                 }
-                return result;
-                 }
+
+            }
+            return RecommendResult;
+
         }
 
+        public int getQualifiaction(string name)
 
+        {
+            return new FRDBEntities().GetPreDegreeByName(name).FirstOrDefault<GetPreDegreeByName_Result>().id;
+        }
+        public int getLocation(string name)
+
+        {
+            return new FRDBEntities().GetLocationByName(name).FirstOrDefault<GetLocationByName_Result>().id;
+        }
+        public GetUniversityById_Result getUniversity(int id)
+
+        {
+            return new FRDBEntities().GetUniversityById(id).FirstOrDefault<GetUniversityById_Result>();
+        }
+        public GetDegreeById_Result getDegree(int id)
+
+        {
+            return new FRDBEntities().GetDegreeById(id).FirstOrDefault<GetDegreeById_Result>();
+        }
     }
+
+
+}
 

@@ -10,18 +10,34 @@ import { CookieService } from 'angular2-cookie/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    name: string = '';
+  name: string = '';
+  errorMessage: string = '';
+  email: string = '';
+  show: boolean = true;
 
-    constructor(public auth: AuthService, public router: Router, private _cookieService: CookieService) { }
+  recommendations: any[] = [];
+
+  constructor(public auth: AuthService, public service: UserService, public router: Router, private _cookieService: CookieService) { }
 
   ngOnInit() {
       if (this.auth.IsLoggedIn()) {
-          this.name = this._cookieService.get('name');
-      this.router.navigate(['/dashboard/home']);
+        this.name = this._cookieService.get('name');
+        this.email = this._cookieService.get('email');
+        this.router.navigate(['/dashboard/home']);
+        this.getRecommendations();
+
     }
     else {
       this.router.navigate(['/signIn']);
     }
   }
+
+  getRecommendations(): void {
+    this.service.getRecommendation(this.email).subscribe
+      (any => this.recommendations = any,
+      error => this.errorMessage = <any>error);
+
+  }
+
 
 }

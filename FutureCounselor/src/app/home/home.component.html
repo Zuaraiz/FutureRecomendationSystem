@@ -14,65 +14,25 @@
                             </div>
                             <!-- /.panel-heading -->
                             <div class="panel-body">
-                                <ul class="timeline">
-                                    <li >
-                                        <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                                        </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4 class="timeline-title">Bahria University</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <h6>Program : Software Engineering</h6>
-                                                <h6>Budget : Rs80000 per Semester</h6>
-                                                <h6>Program Ratting : 5</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-inverted">
-                                        <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                                        </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4 class="timeline-title">NUST University</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <h6>Program : Software Engineering</h6>
-                                                <h6>Budget : Rs100000 per Semester</h6>
-                                                <h6>Program Ratting : 5</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li >
-                                        <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                                        </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4 class="timeline-title">Bahria University</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <h6>Program : Software Engineering</h6>
-                                                <h6>Budget : Rs80000 per Semester</h6>
-                                                <h6>Program Ratting : 5</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="timeline-inverted">
-                                        <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                                        </div>
-                                        <div class="timeline-panel">
-                                            <div class="timeline-heading">
-                                                <h4 class="timeline-title">NUST University</h4>
-                                            </div>
-                                            <div class="timeline-body">
-                                                <h6>Program : Software Engineering</h6>
-                                                <h6>Budget : Rs100000 per Semester</h6>
-                                                <h6>Program Ratting : 5</h6>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    
-                                </ul>
+                              <ul class="timeline">
+                                <li *ngFor="let item of recommendations; let isOdd=odd"   [class.timeline-inverted]="isOdd" >
+                                  <div class="timeline-badge success"  >
+                                    <i class="fa fa-graduation-cap"></i>
+                                  </div>
+                                  <div class="timeline-panel">
+                                    <div class="timeline-heading">
+                                      <h4 class="timeline-title">{{item.UniversityName}}</h4>
+                                    </div>
+                                    <div class="timeline-body">
+                                      <h6>Program : {{item.Degree}}</h6>
+                                      <h6>Budget : Rs{{item.fee}} per Semester</h6>
+                                      <h6>Program Ratting : {{item.rating}}</h6>
+                                    </div>
+                                  </div>
+                                </li>
+                        
+
+                              </ul>
                             </div>
                             <!-- /.panel-body -->
                         </div>

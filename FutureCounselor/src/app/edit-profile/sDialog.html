@@ -1,0 +1,30 @@
+
+
+
+    <h1 mat-dialog-title>Delete Skills</h1>
+    <div mat-dialog-content>
+
+      <div  *ngFor="let item of data.result;">
+        <div class="row">
+          <div class="col-lg-3 col-md-3">
+            <p style="padding-left: 4em">{{item.name}}</p>
+          </div>
+      
+          <div class="col-lg-5 col-md-5" style="padding-left: 7em;">
+            <button type="button" class="btn btn-link" style="font-size: 8pt ;   margin-top: 0.7em" mat-raised-button (click)="AddSkill(item)">
+              Add
+            </button>
+          </div>
+        </div>
+        <hr>
+       
+
+      </div>
+    </div>
+    <div mat-dialog-actions>
+      <button  (click)="onNoClick()">Cancel</button>
+      <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+
+    </div>
+
+

@@ -48,7 +48,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent, HobbyDialog, InterestDialog, SkillDialog } from './profile/profile.component';
-import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { EditProfileComponent, HDialog, IDialog, SDialog } from './edit-profile/edit-profile.component';
 import { AuthService } from './auth.service';
 import { UserService } from './user.service';
 
@@ -99,7 +99,8 @@ export class DemoMaterialModule { }
 @NgModule({
   entryComponents: [EditProfileComponent, ProfileComponent,
     HobbyDialog,InterestDialog,
-    SkillDialog],
+    SkillDialog,
+    HDialog, IDialog, SDialog ],
   declarations: [
     AppComponent,
     SignInComponent,
@@ -111,7 +112,8 @@ export class DemoMaterialModule { }
 
     HobbyDialog,
     InterestDialog,
-    SkillDialog
+    SkillDialog,
+     HDialog, IDialog, SDialog 
   ],
   imports: [
     BrowserModule,

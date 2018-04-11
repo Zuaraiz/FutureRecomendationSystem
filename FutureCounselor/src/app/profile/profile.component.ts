@@ -264,7 +264,7 @@ export class InterestDialog implements OnInit {
 
   constructor(
     private service: UserService,
-    public dialogRef: MatDialogRef<SkillDialog>,
+    public dialogRef: MatDialogRef<InterestDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any, private _cookieService: CookieService) { }
 
 
