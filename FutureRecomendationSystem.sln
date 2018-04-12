@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "Server\Server.csproj", "{565E0BA3-88FC-4804-87E2-98E5A89606D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FutureRecommenderApp", "FutureRecommenderApp\FutureRecommenderApp.csproj", "{15C3C356-630C-4DA7-9CF6-520271867E6E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,12 @@ Global
 		{565E0BA3-88FC-4804-87E2-98E5A89606D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{565E0BA3-88FC-4804-87E2-98E5A89606D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{565E0BA3-88FC-4804-87E2-98E5A89606D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15C3C356-630C-4DA7-9CF6-520271867E6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15C3C356-630C-4DA7-9CF6-520271867E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15C3C356-630C-4DA7-9CF6-520271867E6E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{15C3C356-630C-4DA7-9CF6-520271867E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15C3C356-630C-4DA7-9CF6-520271867E6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15C3C356-630C-4DA7-9CF6-520271867E6E}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

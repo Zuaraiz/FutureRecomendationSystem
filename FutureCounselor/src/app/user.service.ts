@@ -17,7 +17,7 @@ export class UserService {
 
   
    
-    private Url = 'http://localhost:50175/';  // URL to web api
+    private Url = 'http://futurerecommend.azurewebsites.net/';  // URL to web api
  
 //<<<<<<< HEAD
   constructor(private http: Http) { }

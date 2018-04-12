@@ -318,7 +318,7 @@ namespace Server.Controllers
             {
                 if(obj.annualFee<=userInfo.annualBudget && obj.preDegree== getQualifiaction(userInfo.qualification) && obj.location==getLocation(userInfo.location) &&obj.percentage<=userInfo.percentage && obj.rating>0)
                 {
-                    RecommendResult.Add(new RecommendModel { UniversityName = getUniversity(obj.uniId).name, Degree = getDegree(obj.degree).name, fee = obj.annualFee, rating = obj.rating ?? 0 });
+                    RecommendResult.Add(new RecommendModel { UniversityName = getUniversity(obj.uniId).name, Degree = getDegree(obj.degree).name, fee = obj.annualFee, rating = obj.rating ?? 0,url = getUniversity(obj.uniId).website });
 
                 }
 

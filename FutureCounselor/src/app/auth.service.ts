@@ -17,7 +17,7 @@ export class AuthService {
 
   
    
-    private Url = 'http://localhost:50175/';  // URL to web api
+    private Url = 'http://futurerecommend.azurewebsites.net/';  // URL to web api
  
   constructor(
     private http: Http, private _cookieService: CookieService) { }

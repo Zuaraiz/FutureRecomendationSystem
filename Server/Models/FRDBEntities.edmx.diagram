@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="49c7f44b47fc48e3934fa614246e5133" Name="Diagram1">
+      <Diagram DiagramId="11e1ebf699f74f708b02f81c423763fe" Name="Diagram1">
         <EntityTypeShape EntityType="FRDBModel.CategoryHobby" Width="1.5" PointX="3.75" PointY="22.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FRDBModel.Degree" Width="1.5" PointX="1.5" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FRDBModel.DegreeCategory" Width="1.5" PointX="1.5" PointY="16.25" IsExpanded="true" />
@@ -20,7 +20,6 @@
         <EntityTypeShape EntityType="FRDBModel.PreLevel" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FRDBModel.Recommendation" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="FRDBModel.Skill" Width="1.5" PointX="3.75" PointY="19.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="FRDBModel.sysdiagram" Width="1.5" PointX="8.75" PointY="1.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FRDBModel.University" Width="1.5" PointX="6.75" PointY="1.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FRDBModel.UniversityDegree" Width="1.5" PointX="9" PointY="8.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FRDBModel.UniversityDegreeFee" Width="1.5" PointX="11.25" PointY="9.375" IsExpanded="true" />

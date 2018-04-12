@@ -410,9 +410,6 @@
     <Compile Include="Models\Skill.cs">
       <DependentUpon>FRDBEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\University.cs">
       <DependentUpon>FRDBEntities.tt</DependentUpon>
     </Compile>
@@ -470,6 +467,7 @@
     <Content Include="Models\FRDBEntities.edmx.diagram">
       <DependentUpon>FRDBEntities.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\futurerecommend - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

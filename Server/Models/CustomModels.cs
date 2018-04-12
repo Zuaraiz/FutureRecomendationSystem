@@ -25,6 +25,7 @@ namespace Server.Models
         public String Degree { set; get; }
         public decimal fee { set; get; }
         public int rating { set;get;} 
+        public string url { set; get; }
 
     }
     public partial class UserSkills:UserAddSkills_Result
