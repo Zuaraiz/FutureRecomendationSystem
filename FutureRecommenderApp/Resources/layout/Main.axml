@@ -5,13 +5,24 @@
     android:layout_height="match_parent"
     android:minWidth="25px"
     android:minHeight="25px">
-   
+    <TextView
+        android:text="Future Recommender"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:textSize="@android:dimen/app_icon_size"
+        android:textStyle="italic"
+        android:typeface="serif"
+        android:textColor="@color/ColorPrimary"
+        android:textAlignment="center" />
     <EditText
         android:inputType="textPostalAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editText1"
-        android:hint="Username" />
+        android:hint="Username"
+        android:layout_marginTop="20dp" />
     <EditText
         android:inputType="numberPassword"
         android:layout_width="match_parent"
@@ -19,9 +30,22 @@
         android:id="@+id/editText2"
         android:hint="Password" />
     <Button
-        android:text="Button"
-        android:layout_width="match_parent"
+        android:text="SignIn"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/button1"
-        />
+        android:textStyle="italic"
+        android:typeface="monospace"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp" />
+    <TextView
+        android:text="SignUp?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView2"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:layout_margin="30dp"
+        android:gravity="center" />
 </LinearLayout>

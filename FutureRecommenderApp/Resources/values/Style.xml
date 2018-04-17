@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="Theme.DesignDemo" parent="Base.Theme.DesignDemo"></style>
+  <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
+   
+  </style>
+	<style name="Theme.Custom" parent="@android:style/Theme.DeviceDefault">
+   </style>
+</resources>
