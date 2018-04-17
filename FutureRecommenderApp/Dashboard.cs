@@ -16,50 +16,31 @@ using Android.Views;
 
 namespace FutureRecommenderApp
 {
-    [Activity(Label = "Dashboard", Theme = "@style/Theme.DesignDemo")]
-    public class Dashboard : AppCompatActivity
+    [Activity(Label = "Dashboard" )]
+    public class Dashboard : TabActivity
     {
-        DrawerLayout drawerLayout;
-        NavigationView navigationView;
+       
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.dashboard);
-            var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
-            SetSupportActionBar(toolbar);
-            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            SupportActionBar.SetDisplayShowTitleEnabled(false);
-            SupportActionBar.SetHomeButtonEnabled(true);
-          
-            drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
-            navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
+         
+            CreateTab(typeof(Recommendation), "whats_on", "What's On");
+            CreateTab(typeof(Profile), "speakers", "Speakers");
            
+
         }
-        public override bool OnOptionsItemSelected(IMenuItem item)
+        private void CreateTab(Type activityType, string tag, string label)
         {
-            switch (item.ItemId)
-            {
-                case Android.Resource.Id.Home:
-                    drawerLayout.OpenDrawer(Android.Support.V4.View.GravityCompat.Start);
-                    return true;
-            }
-            return base.OnOptionsItemSelected(item);
+            var intent = new Intent(this, activityType);
+            intent.AddFlags(ActivityFlags.NewTask);
+
+            var spec = TabHost.NewTabSpec(tag);
+            spec.SetIndicator(label);
+            spec.SetContent(intent);
+
+            TabHost.AddTab(spec);
         }
-        private void HomeNavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
-        { var menuItem = e.MenuItem;
-            menuItem.SetChecked(!menuItem.IsChecked);
-                Intent intent;
-            switch (menuItem.ItemId)
-            {
-                case Resource.Id.nav_home:
-                    intent = new Intent(this, typeof(SignUp));
-                    StartActivity(intent);
-                    break;
-                case Resource.Id.nav_messages:
-                    intent = new Intent(this, typeof(MainActivity));
-                    StartActivity(intent);
-                    break;
-            }
-        }
+
     }
 }

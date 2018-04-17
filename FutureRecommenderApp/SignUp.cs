@@ -108,15 +108,16 @@ namespace FutureRecommenderApp
            
             if (x==0)
             {
-                Toast.MakeText(this, "Error! Try Again", ToastLength.Short).Show();
+                Toast.MakeText(this, "Error! User Already Exists", ToastLength.Short).Show();
             }
             else if (x==2)
             {
-                Toast.MakeText(this, "Error! server down", ToastLength.Short).Show();
+                Toast.MakeText(this, "Error! Server down", ToastLength.Short).Show();
                
             }
             else if (x == -1)
             {
+                Toast.MakeText(this, "User registed Sucessfully!", ToastLength.Long).Show();
                 StartActivity(typeof(MainActivity));
             }
 
@@ -147,23 +148,7 @@ namespace FutureRecommenderApp
         }
 
 
-        private async Task<string> tryfunc()
-        {
-            var client = new HttpClient();
-
-
-            string r = "1";
-            var jsonRequest = new { email ="usman@gmail.com", id = 8, rating = 20 };
-
-            var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
-            HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/x-www-form-urlencoded");
-            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/add/skills", content).ConfigureAwait(false);
-            if (result.IsSuccessStatusCode)
-            {
-                r = await result.Content.ReadAsStringAsync();
-            }
-            return r;
-        }
+   
 
 
 
