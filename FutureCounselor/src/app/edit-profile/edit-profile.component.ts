@@ -47,34 +47,49 @@ export class EditProfileComponent implements OnInit {
   }
 
   editProfile(): void {
- 
-    this.service.editUserProfile(this.email,this.userInfo).subscribe
-      (any => this.userInfo = any,
-      error => this.errorMessage = <any>error);
-    this.router.navigate(['/signIn']);
+  
+    if ((this.userInfo.percentage <= 100) && this.userInfo.percentage >= 40) {
+      this.userInfo.location = this.selectedLocation.id;
+      this.userInfo.qualification = this.selectedDegree.id;
+      this.userInfo.percentage = this.userInfo.percentage / 100;
+      this.service.editUserProfile(this.email, this.userInfo).subscribe
+        (any => this.userInfo = any,
+        error => alert(<any>error),
+        () => {
+          alert('Edit Sucessfully!');
+          this.userInfo.percentage = this.userInfo.percentage * 100;
+        });
+      
+    }
+    else {
+      
+      alert('invalid pecentage! should between(40-100)')
+    }
 
   }
   getLocations(): void {
     this.auth.AllLocation()
       .subscribe(
       resultArray => this.locations = resultArray,
-      error => console.log("Error :: " + error)
+      error => console.log("Error :: " + error),()=> this.selectedLocation = this.locations[0]
       )
-    this.selectedLocation = this.locations[0];
+   
   }
   getPreDegree(): void {
     this.auth.AllPreDegree()
       .subscribe(
       resultArray => this.predegree = resultArray,
-      error => console.log("Error :: " + error)
+      error => console.log("Error :: " + error), () => this.selectedDegree = this.predegree[0]
       )
-    this.selectedDegree = this.predegree[0];
+   
   }
 
   getuserinfo(): void {
     this.service.getUserProfile(this.email).subscribe
       (any => this.userInfo = any,
-      error => this.errorMessage = <any>error);
+      error => this.errorMessage = <any>error, () => this.userInfo.percentage = this.userInfo.percentage * 100);
+
+
 
   }
   getuserskilllist(): void {

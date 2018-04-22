@@ -63,7 +63,7 @@ namespace FutureRecommenderApp.Resources.extra
             RecommendModel item = this[position];
             view.FindViewById<TextView>(Resource.Id.university).Text = item.UniversityName;
             view.FindViewById<TextView>(Resource.Id.degree).Text = item.Degree;
-            view.FindViewById<TextView>(Resource.Id.budget).Text = item.fee.ToString();
+            view.FindViewById<TextView>(Resource.Id.budget).Text ="fee: "+item.fee.ToString()+ " perSemester.";
 
 
 

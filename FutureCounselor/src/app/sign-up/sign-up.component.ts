@@ -4,6 +4,7 @@ import { signup } from '../Models/signup';
 import { option } from '../Models/signup';
 
 import { Router } from '@angular/router';
+import { and } from '@angular/router/src/utils/collection';
 
 @Component({
   selector: 'app-sign-up',
@@ -34,11 +35,18 @@ export class SignUpComponent implements OnInit {
   }
     signUp(): void {
         this.userData.location = this.selectedLocation.id;
-        this.userData.qualification = this.selectedDegree.id;
-      this.auth.SignUp(this.userData).subscribe
+      this.userData.qualification = this.selectedDegree.id;
+      if (!(this.userData.percentage <= 100) && this.userData.percentage >= 40) {
+        this.userData.percentage = this.userData.percentage / 100;
+        this.auth.SignUp(this.userData).subscribe
           (number => this.sucess = number,
-          error => this.errorMessage = <any>error);
-      this.router.navigate(['/signIn']);
+          error => alert(<any>error), () => this.router.navigate(['/signIn']));
+       
+      
+      }
+      else {
+        alert('invalid pecentage! should between(40-100)')
+      }
       
   }
   getLocations(): void {

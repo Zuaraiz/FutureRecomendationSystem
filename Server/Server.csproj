@@ -120,15 +120,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Models\FRDBEntities.Context.tt">
+    <Content Include="Models\FRDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FRDBEntities.edmx</DependentUpon>
-      <LastGenOutput>FRDBEntities.Context.cs</LastGenOutput>
+      <DependentUpon>FRDB.edmx</DependentUpon>
+      <LastGenOutput>FRDB.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\FRDBEntities.tt">
+    <Content Include="Models\FRDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FRDBEntities.edmx</DependentUpon>
-      <LastGenOutput>FRDBEntities.cs</LastGenOutput>
+      <DependentUpon>FRDB.edmx</DependentUpon>
+      <LastGenOutput>FRDB.cs</LastGenOutput>
     </Content>
     <Content Include="Web.config" />
   </ItemGroup>
@@ -146,311 +146,311 @@
     <Compile Include="Implementation\Classifier.cs" />
     <Compile Include="Implementation\InformationModel.cs" />
     <Compile Include="Models\AddCategoryHobby_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddCategory_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddDegree_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddHobby_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddInterest_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddLocation_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddMajorInterest_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddMajorSkill_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddMajor_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddPreDegree_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddSkill_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddUniversityDegree_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddUniversity_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddUserPreferences_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AddUserRecomendation_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CategoryHobby.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomModels.cs" />
     <Compile Include="Models\Degree.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DegreeCategory.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FRDBEntities.Context.cs">
+    <Compile Include="Models\FRDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FRDBEntities.Context.tt</DependentUpon>
+      <DependentUpon>FRDB.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FRDBEntities.cs">
+    <Compile Include="Models\FRDB.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\FRDBEntities.Designer.cs">
+    <Compile Include="Models\FRDB.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FRDBEntities.edmx</DependentUpon>
+      <DependentUpon>FRDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllCategoryHobby_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllCategory_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllDegrees_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllHobby_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllInterest_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllLocation_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllMajorInterest_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllMajorSkill_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllMajor_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllPreDegree_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllSkill_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllUniversityDegree_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllUniversity_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetAllUsers_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetCategoryById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetCategoryByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetCategoryHobbyByCategory_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetCategoryHobbyByHobby_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetCategoryHobbyById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetDegreeByCategory_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetDegreeById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetDegreeByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetHobbyById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetHobbyByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetInterestById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetInterestByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetLocationById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetLocationByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorByDegree_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorInterestById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorInterestByInterest_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorInterestByMajor_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorSkillById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorSkillByMajor_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetMajorSkillBySkill_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetPreDegreeById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetPreDegreeByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetRecommenadation_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetSkillById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetSkillByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetTestData_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetTrainingData_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUniversityById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUniversityByLocation_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUniversityByName_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUniversityByType_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUserInfo_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUserInterests_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUserPreferences_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUserRecomendations_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\GetUserSkills_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Hobby.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Interest.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Location.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Major.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MajorInterest.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MajorSkill.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PreDegree.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PreDegreeLevel.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Preference.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PreLevel.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Recommendation.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Skill.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\University.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UniversityDegree.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UniversityDegreeByDegree_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UniversityDegreeById_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UniversityDegreeFee.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\User.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserAddHobbies_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserAddInterests_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserAddSkills_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserHobby.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInfo.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserInterest.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserSignIn_Result.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserSkill.cs">
-      <DependentUpon>FRDBEntities.tt</DependentUpon>
+      <DependentUpon>FRDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup1.cs" />
@@ -460,12 +460,12 @@
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Models\FRDBEntities.edmx">
+    <EntityDeploy Include="Models\FRDB.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FRDBEntities.Designer.cs</LastGenOutput>
+      <LastGenOutput>FRDB.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\FRDBEntities.edmx.diagram">
-      <DependentUpon>FRDBEntities.edmx</DependentUpon>
+    <Content Include="Models\FRDB.edmx.diagram">
+      <DependentUpon>FRDB.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\futurerecommend - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">

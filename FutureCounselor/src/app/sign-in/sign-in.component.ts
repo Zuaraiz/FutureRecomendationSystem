@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
     errorMessage: String;
     email: string;
     password: String;
-    user = new user();
+  user: any;
   constructor(private auth: AuthService, private router: Router, private _cookieService: CookieService) {
 }
 
@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
   {
       this.auth.SignIn(this.email, this.password).subscribe
         (user => this.user = user,
-        error => this.errorMessage = <any>error, () => this.SaveCookies(this.email, this.user.firstname, this.user.id));
+        error => alert(<any>error), () => this.SaveCookies(this.email, this.user.firstName +''+ this.user.lastName, this.user.id));
 
   }
  

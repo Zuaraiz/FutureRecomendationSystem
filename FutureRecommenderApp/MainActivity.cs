@@ -6,9 +6,12 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using System;
 using System.Text;
+using Android.Content;
+using Android.Preferences;
 
 namespace FutureRecommenderApp
-{ public partial class UserSignIn_Result
+{
+    public partial class UserSignIn_Result
     {
         public int id { get; set; }
         public string firstName { get; set; }
@@ -18,22 +21,31 @@ namespace FutureRecommenderApp
         public decimal percentage { get; set; }
         public decimal annualBudget { get; set; }
     }
-    public partial class check
-    {
-        public string email { get; set; }
-        public int id { get; set; }
-        public int rating { get; set; }
-
-    }
-    [Activity(Label = "FutureRecommenderApp", MainLauncher = true)]
+  
+   
+    [Activity(Label = "FutureRecommenderApp", Theme = "@android:style/Theme.Holo.Light.DarkActionBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
+        String email;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            // Set our view from the "main" layout resource
             SetContentView(Resource.Layout.Main);
+            // Set our view from the "main" layout resource
+     
+            ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(ApplicationContext);
+            email=prefs.GetString("email", "empty");
+           
+            if(email.Equals("empty"))
+            {
+
+            }
+            else
+            {
+                StartActivity(typeof(Dashboard));
+                this.Finish();
+
+            }
 
             Button button = FindViewById<Button>(Resource.Id.button1);
             TextView button2 = FindViewById<TextView>(Resource.Id.textView2);
@@ -44,15 +56,14 @@ namespace FutureRecommenderApp
             button.Click += delegate {
                 SignIn();
             };
-            check c = new check { email = "usman@gmail.com", id = 8, rating = 20 };
-            Task<string> task = tryfunc(c);
-            var x = JsonConvert.DeserializeObject(task.Result);
+            
         }
 
 
         public void SignUp()
         {
             StartActivity(typeof(SignUp));
+            this.Finish();
         }
 
             public void SignIn()
@@ -62,15 +73,31 @@ namespace FutureRecommenderApp
             String email = username.Text;
             String pass = password.Text;
             Task<string> task = Login(email, pass);
-            var x = JsonConvert.DeserializeObject(task.Result);
+            try
+            {
+                var x = JsonConvert.DeserializeObject<UserSignIn_Result>(task.Result);
+                
+                ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(ApplicationContext);
+                ISharedPreferencesEditor editor = prefs.Edit();
+                editor.PutString("email", email);
+                editor.PutInt("id", x.id);
+                
+                editor.Apply();
 
-            StartActivity(typeof(Dashboard));
+                StartActivity(typeof(Dashboard));
+                this.Finish();
+            }
+            catch(Exception e)
+            {
+                Toast.MakeText(this, "Error! Some Wrong Happen", ToastLength.Short).Show();
+
+            }
 
         }
         private async Task<string> Login(string username, string password)
         {
             var client = new HttpClient();
-            string r = "";
+            string r = "2";
             var jsonRequest = new { email = username, password = password };
 
             var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
@@ -83,24 +110,7 @@ namespace FutureRecommenderApp
             return r;
         }
 
-        private async Task<string> tryfunc(check c)
-        {
-            var client = new HttpClient();
-
-
-            string r = "1";
-            var jsonRequest = new { email = "usman@gmail.com", id = 8, rating = 20 };
-        
-
-            var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
-            HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/x-www-form-urlencoded");
-            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/add/skills", content).ConfigureAwait(false);
-            if (result.IsSuccessStatusCode)
-            {
-                r = await result.Content.ReadAsStringAsync();
-            }
-            return r;
-        }
+     
 
 
     }

@@ -90,7 +90,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddHobby.cs" />
+    <Compile Include="AddHobbyAdapter.cs" />
+    <Compile Include="AddInterest.cs" />
+    <Compile Include="AddSkill.cs" />
+    <Compile Include="AddInterestAdapter.cs" />
+    <Compile Include="AddSkillAdapter.cs" />
     <Compile Include="Dashboard.cs" />
+    <Compile Include="deleteSkillAdapter.cs" />
+    <Compile Include="DeleteSkills.cs" />
+    <Compile Include="EditProfile.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Profile.cs" />
     <Compile Include="Recommendation.cs" />
@@ -122,6 +131,27 @@
     <AndroidResource Include="Resources\layout\RecommendationItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\EditProfile.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Add_Skill_Interest_List_Item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\addSkill.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Add_Hobby_List_Item.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\addInterest.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\addHobby.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\deleteSkill.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -138,6 +168,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\Bachelor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\colors.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\values\styles.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

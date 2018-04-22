@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FRDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="frdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CategoryHobby">
           <Key>
             <PropertyRef Name="id" />
@@ -791,7 +791,7 @@
           <Parameter Name="location" Type="int" Mode="In" />
           <Parameter Name="qualification" Type="int" Mode="In" />
         </Function>
-        <EntityContainer Name="FRDBModelStoreContainer">
+        <EntityContainer Name="frdbModelStoreContainer">
           <EntitySet Name="CategoryHobby" EntityType="Self.CategoryHobby" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Degree" EntityType="Self.Degree" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="DegreeCategory" EntityType="Self.DegreeCategory" Schema="dbo" store:Type="Tables" />
@@ -932,7 +932,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="FRDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="frdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CategoryHobby">
           <Key>
             <PropertyRef Name="id" />
@@ -1652,41 +1652,41 @@
             <End Role="User" EntitySet="Users" />
             <End Role="UserInterest" EntitySet="UserInterests" />
           </AssociationSet>
-          <FunctionImport Name="AddCategory" ReturnType="Collection(FRDBModel.AddCategory_Result)">
+          <FunctionImport Name="AddCategory" ReturnType="Collection(frdbModel.AddCategory_Result)">
             <Parameter Name="cat" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="AddCategoryHobby" ReturnType="Collection(FRDBModel.AddCategoryHobby_Result)">
+          <FunctionImport Name="AddCategoryHobby" ReturnType="Collection(frdbModel.AddCategoryHobby_Result)">
             <Parameter Name="hobby" Mode="In" Type="Int32" />
             <Parameter Name="cat" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="AddDegree" ReturnType="Collection(FRDBModel.AddDegree_Result)">
+          <FunctionImport Name="AddDegree" ReturnType="Collection(frdbModel.AddDegree_Result)">
             <Parameter Name="degreeName" Mode="In" Type="String" />
             <Parameter Name="catId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="AddHobby" ReturnType="Collection(FRDBModel.AddHobby_Result)">
+          <FunctionImport Name="AddHobby" ReturnType="Collection(frdbModel.AddHobby_Result)">
             <Parameter Name="hobbyName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="AddInterest" ReturnType="Collection(FRDBModel.AddInterest_Result)">
+          <FunctionImport Name="AddInterest" ReturnType="Collection(frdbModel.AddInterest_Result)">
             <Parameter Name="interestName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="AddLocation" ReturnType="Collection(FRDBModel.AddLocation_Result)">
+          <FunctionImport Name="AddLocation" ReturnType="Collection(frdbModel.AddLocation_Result)">
             <Parameter Name="location" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="AddMajor" ReturnType="Collection(FRDBModel.AddMajor_Result)">
+          <FunctionImport Name="AddMajor" ReturnType="Collection(frdbModel.AddMajor_Result)">
             <Parameter Name="majorName" Mode="In" Type="String" />
             <Parameter Name="degreeId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="AddMajorInterest" ReturnType="Collection(FRDBModel.AddMajorInterest_Result)">
+          <FunctionImport Name="AddMajorInterest" ReturnType="Collection(frdbModel.AddMajorInterest_Result)">
             <Parameter Name="interest" Mode="In" Type="Int32" />
             <Parameter Name="major" Mode="In" Type="Int32" />
             <Parameter Name="rating" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="AddMajorSkill" ReturnType="Collection(FRDBModel.AddMajorSkill_Result)">
+          <FunctionImport Name="AddMajorSkill" ReturnType="Collection(frdbModel.AddMajorSkill_Result)">
             <Parameter Name="skill" Mode="In" Type="Int32" />
             <Parameter Name="rating" Mode="In" Type="Int32" />
             <Parameter Name="major" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="AddPreDegree" ReturnType="Collection(FRDBModel.AddPreDegree_Result)">
+          <FunctionImport Name="AddPreDegree" ReturnType="Collection(frdbModel.AddPreDegree_Result)">
             <Parameter Name="preDegree" Mode="In" Type="String" />
             <Parameter Name="preLevel" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1695,10 +1695,10 @@
             <Parameter Name="majorId" Mode="In" Type="Int32" />
             <Parameter Name="rating" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="AddSkill" ReturnType="Collection(FRDBModel.AddSkill_Result)">
+          <FunctionImport Name="AddSkill" ReturnType="Collection(frdbModel.AddSkill_Result)">
             <Parameter Name="skill" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="AddUniversity" ReturnType="Collection(FRDBModel.AddUniversity_Result)">
+          <FunctionImport Name="AddUniversity" ReturnType="Collection(frdbModel.AddUniversity_Result)">
             <Parameter Name="name" Mode="In" Type="String" />
             <Parameter Name="location" Mode="In" Type="Int32" />
             <Parameter Name="type" Mode="In" Type="String" />
@@ -1706,7 +1706,7 @@
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="website" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="AddUniversityDegree" ReturnType="Collection(FRDBModel.AddUniversityDegree_Result)">
+          <FunctionImport Name="AddUniversityDegree" ReturnType="Collection(frdbModel.AddUniversityDegree_Result)">
             <Parameter Name="degree" Mode="In" Type="Int32" />
             <Parameter Name="percentage" Mode="In" Type="Decimal" />
             <Parameter Name="preDegree" Mode="In" Type="Int32" />
@@ -1714,11 +1714,11 @@
             <Parameter Name="fee" Mode="In" Type="Decimal" />
             <Parameter Name="uniId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="AddUserPreferences" ReturnType="Collection(FRDBModel.AddUserPreferences_Result)">
+          <FunctionImport Name="AddUserPreferences" ReturnType="Collection(frdbModel.AddUserPreferences_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="degreeId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="AddUserRecomendation" ReturnType="Collection(FRDBModel.AddUserRecomendation_Result)">
+          <FunctionImport Name="AddUserRecomendation" ReturnType="Collection(frdbModel.AddUserRecomendation_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="major" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1735,116 +1735,116 @@
             <Parameter Name="userId" Mode="In" Type="Int32" />
             <Parameter Name="skillId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetAllCategory" ReturnType="Collection(FRDBModel.GetAllCategory_Result)" />
-          <FunctionImport Name="GetAllCategoryHobby" ReturnType="Collection(FRDBModel.GetAllCategoryHobby_Result)" />
-          <FunctionImport Name="GetAllDegrees" ReturnType="Collection(FRDBModel.GetAllDegrees_Result)" />
-          <FunctionImport Name="GetAllHobby" ReturnType="Collection(FRDBModel.GetAllHobby_Result)" />
-          <FunctionImport Name="GetAllInterest" ReturnType="Collection(FRDBModel.GetAllInterest_Result)" />
-          <FunctionImport Name="GetAllLocation" ReturnType="Collection(FRDBModel.GetAllLocation_Result)" />
-          <FunctionImport Name="GetAllMajor" ReturnType="Collection(FRDBModel.GetAllMajor_Result)" />
-          <FunctionImport Name="GetAllMajorInterest" ReturnType="Collection(FRDBModel.GetAllMajorInterest_Result)" />
-          <FunctionImport Name="GetAllMajorSkill" ReturnType="Collection(FRDBModel.GetAllMajorSkill_Result)" />
-          <FunctionImport Name="GetAllPreDegree" ReturnType="Collection(FRDBModel.GetAllPreDegree_Result)" />
-          <FunctionImport Name="GetAllSkill" ReturnType="Collection(FRDBModel.GetAllSkill_Result)" />
-          <FunctionImport Name="GetAllUniversity" ReturnType="Collection(FRDBModel.GetAllUniversity_Result)" />
-          <FunctionImport Name="GetAllUniversityDegree" ReturnType="Collection(FRDBModel.GetAllUniversityDegree_Result)" />
-          <FunctionImport Name="GetAllUsers" ReturnType="Collection(FRDBModel.GetAllUsers_Result)" />
-          <FunctionImport Name="GetCategoryById" ReturnType="Collection(FRDBModel.GetCategoryById_Result)">
+          <FunctionImport Name="GetAllCategory" ReturnType="Collection(frdbModel.GetAllCategory_Result)" />
+          <FunctionImport Name="GetAllCategoryHobby" ReturnType="Collection(frdbModel.GetAllCategoryHobby_Result)" />
+          <FunctionImport Name="GetAllDegrees" ReturnType="Collection(frdbModel.GetAllDegrees_Result)" />
+          <FunctionImport Name="GetAllHobby" ReturnType="Collection(frdbModel.GetAllHobby_Result)" />
+          <FunctionImport Name="GetAllInterest" ReturnType="Collection(frdbModel.GetAllInterest_Result)" />
+          <FunctionImport Name="GetAllLocation" ReturnType="Collection(frdbModel.GetAllLocation_Result)" />
+          <FunctionImport Name="GetAllMajor" ReturnType="Collection(frdbModel.GetAllMajor_Result)" />
+          <FunctionImport Name="GetAllMajorInterest" ReturnType="Collection(frdbModel.GetAllMajorInterest_Result)" />
+          <FunctionImport Name="GetAllMajorSkill" ReturnType="Collection(frdbModel.GetAllMajorSkill_Result)" />
+          <FunctionImport Name="GetAllPreDegree" ReturnType="Collection(frdbModel.GetAllPreDegree_Result)" />
+          <FunctionImport Name="GetAllSkill" ReturnType="Collection(frdbModel.GetAllSkill_Result)" />
+          <FunctionImport Name="GetAllUniversity" ReturnType="Collection(frdbModel.GetAllUniversity_Result)" />
+          <FunctionImport Name="GetAllUniversityDegree" ReturnType="Collection(frdbModel.GetAllUniversityDegree_Result)" />
+          <FunctionImport Name="GetAllUsers" ReturnType="Collection(frdbModel.GetAllUsers_Result)" />
+          <FunctionImport Name="GetCategoryById" ReturnType="Collection(frdbModel.GetCategoryById_Result)">
             <Parameter Name="catId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetCategoryByName" ReturnType="Collection(FRDBModel.GetCategoryByName_Result)">
+          <FunctionImport Name="GetCategoryByName" ReturnType="Collection(frdbModel.GetCategoryByName_Result)">
             <Parameter Name="catName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetCategoryHobbyByCategory" ReturnType="Collection(FRDBModel.GetCategoryHobbyByCategory_Result)">
+          <FunctionImport Name="GetCategoryHobbyByCategory" ReturnType="Collection(frdbModel.GetCategoryHobbyByCategory_Result)">
             <Parameter Name="cat" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetCategoryHobbyByHobby" ReturnType="Collection(FRDBModel.GetCategoryHobbyByHobby_Result)">
+          <FunctionImport Name="GetCategoryHobbyByHobby" ReturnType="Collection(frdbModel.GetCategoryHobbyByHobby_Result)">
             <Parameter Name="hobby" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetCategoryHobbyById" ReturnType="Collection(FRDBModel.GetCategoryHobbyById_Result)">
+          <FunctionImport Name="GetCategoryHobbyById" ReturnType="Collection(frdbModel.GetCategoryHobbyById_Result)">
             <Parameter Name="catHobbyId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetDegreeByCategory" ReturnType="Collection(FRDBModel.GetDegreeByCategory_Result)">
+          <FunctionImport Name="GetDegreeByCategory" ReturnType="Collection(frdbModel.GetDegreeByCategory_Result)">
             <Parameter Name="degreeCat" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetDegreeById" ReturnType="Collection(FRDBModel.GetDegreeById_Result)">
+          <FunctionImport Name="GetDegreeById" ReturnType="Collection(frdbModel.GetDegreeById_Result)">
             <Parameter Name="degreeId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetDegreeByName" ReturnType="Collection(FRDBModel.GetDegreeByName_Result)">
+          <FunctionImport Name="GetDegreeByName" ReturnType="Collection(frdbModel.GetDegreeByName_Result)">
             <Parameter Name="degreeName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetHobbyById" ReturnType="Collection(FRDBModel.GetHobbyById_Result)">
+          <FunctionImport Name="GetHobbyById" ReturnType="Collection(frdbModel.GetHobbyById_Result)">
             <Parameter Name="hobbyId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetHobbyByName" ReturnType="Collection(FRDBModel.GetHobbyByName_Result)">
+          <FunctionImport Name="GetHobbyByName" ReturnType="Collection(frdbModel.GetHobbyByName_Result)">
             <Parameter Name="hobbyName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetInterestById" ReturnType="Collection(FRDBModel.GetInterestById_Result)">
+          <FunctionImport Name="GetInterestById" ReturnType="Collection(frdbModel.GetInterestById_Result)">
             <Parameter Name="interestId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetInterestByName" ReturnType="Collection(FRDBModel.GetInterestByName_Result)">
+          <FunctionImport Name="GetInterestByName" ReturnType="Collection(frdbModel.GetInterestByName_Result)">
             <Parameter Name="interestName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetLocationById" ReturnType="Collection(FRDBModel.GetLocationById_Result)">
+          <FunctionImport Name="GetLocationById" ReturnType="Collection(frdbModel.GetLocationById_Result)">
             <Parameter Name="locationId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetLocationByName" ReturnType="Collection(FRDBModel.GetLocationByName_Result)">
+          <FunctionImport Name="GetLocationByName" ReturnType="Collection(frdbModel.GetLocationByName_Result)">
             <Parameter Name="location" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorByDegree" ReturnType="Collection(FRDBModel.GetMajorByDegree_Result)">
+          <FunctionImport Name="GetMajorByDegree" ReturnType="Collection(frdbModel.GetMajorByDegree_Result)">
             <Parameter Name="majorDegree" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorById" ReturnType="Collection(FRDBModel.GetMajorById_Result)">
+          <FunctionImport Name="GetMajorById" ReturnType="Collection(frdbModel.GetMajorById_Result)">
             <Parameter Name="majorId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorByName" ReturnType="Collection(FRDBModel.GetMajorByName_Result)">
+          <FunctionImport Name="GetMajorByName" ReturnType="Collection(frdbModel.GetMajorByName_Result)">
             <Parameter Name="majorName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorInterestById" ReturnType="Collection(FRDBModel.GetMajorInterestById_Result)">
+          <FunctionImport Name="GetMajorInterestById" ReturnType="Collection(frdbModel.GetMajorInterestById_Result)">
             <Parameter Name="majorInterestId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorInterestByInterest" ReturnType="Collection(FRDBModel.GetMajorInterestByInterest_Result)">
+          <FunctionImport Name="GetMajorInterestByInterest" ReturnType="Collection(frdbModel.GetMajorInterestByInterest_Result)">
             <Parameter Name="interest" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorInterestByMajor" ReturnType="Collection(FRDBModel.GetMajorInterestByMajor_Result)">
+          <FunctionImport Name="GetMajorInterestByMajor" ReturnType="Collection(frdbModel.GetMajorInterestByMajor_Result)">
             <Parameter Name="major" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorSkillById" ReturnType="Collection(FRDBModel.GetMajorSkillById_Result)">
+          <FunctionImport Name="GetMajorSkillById" ReturnType="Collection(frdbModel.GetMajorSkillById_Result)">
             <Parameter Name="majorSkillId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorSkillByMajor" ReturnType="Collection(FRDBModel.GetMajorSkillByMajor_Result)">
+          <FunctionImport Name="GetMajorSkillByMajor" ReturnType="Collection(frdbModel.GetMajorSkillByMajor_Result)">
             <Parameter Name="major" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetMajorSkillBySkill" ReturnType="Collection(FRDBModel.GetMajorSkillBySkill_Result)">
+          <FunctionImport Name="GetMajorSkillBySkill" ReturnType="Collection(frdbModel.GetMajorSkillBySkill_Result)">
             <Parameter Name="skill" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetPreDegreeById" ReturnType="Collection(FRDBModel.GetPreDegreeById_Result)">
+          <FunctionImport Name="GetPreDegreeById" ReturnType="Collection(frdbModel.GetPreDegreeById_Result)">
             <Parameter Name="preDegId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetPreDegreeByName" ReturnType="Collection(FRDBModel.GetPreDegreeByName_Result)">
+          <FunctionImport Name="GetPreDegreeByName" ReturnType="Collection(frdbModel.GetPreDegreeByName_Result)">
             <Parameter Name="preDegName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetRecommenadation" ReturnType="Collection(FRDBModel.GetRecommenadation_Result)">
+          <FunctionImport Name="GetRecommenadation" ReturnType="Collection(frdbModel.GetRecommenadation_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetSkillById" ReturnType="Collection(FRDBModel.GetSkillById_Result)">
+          <FunctionImport Name="GetSkillById" ReturnType="Collection(frdbModel.GetSkillById_Result)">
             <Parameter Name="skillId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetSkillByName" ReturnType="Collection(FRDBModel.GetSkillByName_Result)">
+          <FunctionImport Name="GetSkillByName" ReturnType="Collection(frdbModel.GetSkillByName_Result)">
             <Parameter Name="skillName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetTestData" ReturnType="Collection(FRDBModel.GetTestData_Result)" />
-          <FunctionImport Name="GetTrainingData" ReturnType="Collection(FRDBModel.GetTrainingData_Result)" />
-          <FunctionImport Name="GetUniversityById" ReturnType="Collection(FRDBModel.GetUniversityById_Result)">
+          <FunctionImport Name="GetTestData" ReturnType="Collection(frdbModel.GetTestData_Result)" />
+          <FunctionImport Name="GetTrainingData" ReturnType="Collection(frdbModel.GetTrainingData_Result)" />
+          <FunctionImport Name="GetUniversityById" ReturnType="Collection(frdbModel.GetUniversityById_Result)">
             <Parameter Name="uniId" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetUniversityByLocation" ReturnType="Collection(FRDBModel.GetUniversityByLocation_Result)">
+          <FunctionImport Name="GetUniversityByLocation" ReturnType="Collection(frdbModel.GetUniversityByLocation_Result)">
             <Parameter Name="uniLoc" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="GetUniversityByName" ReturnType="Collection(FRDBModel.GetUniversityByName_Result)">
+          <FunctionImport Name="GetUniversityByName" ReturnType="Collection(frdbModel.GetUniversityByName_Result)">
             <Parameter Name="uniName" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetUniversityByType" ReturnType="Collection(FRDBModel.GetUniversityByType_Result)">
+          <FunctionImport Name="GetUniversityByType" ReturnType="Collection(frdbModel.GetUniversityByType_Result)">
             <Parameter Name="uniType" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetUserHobbies" ReturnType="Collection(String)">
@@ -1853,25 +1853,25 @@
           <FunctionImport Name="GetUserId" ReturnType="Collection(Int32)">
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetUserInfo" ReturnType="Collection(FRDBModel.GetUserInfo_Result)">
+          <FunctionImport Name="GetUserInfo" ReturnType="Collection(frdbModel.GetUserInfo_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetUserInterests" ReturnType="Collection(FRDBModel.GetUserInterests_Result)">
+          <FunctionImport Name="GetUserInterests" ReturnType="Collection(frdbModel.GetUserInterests_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetUserPreferences" ReturnType="Collection(FRDBModel.GetUserPreferences_Result)">
+          <FunctionImport Name="GetUserPreferences" ReturnType="Collection(frdbModel.GetUserPreferences_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetUserRecomendations" ReturnType="Collection(FRDBModel.GetUserRecomendations_Result)">
+          <FunctionImport Name="GetUserRecomendations" ReturnType="Collection(frdbModel.GetUserRecomendations_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="GetUserSkills" ReturnType="Collection(FRDBModel.GetUserSkills_Result)">
+          <FunctionImport Name="GetUserSkills" ReturnType="Collection(frdbModel.GetUserSkills_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="UniversityDegreeByDegree" ReturnType="Collection(FRDBModel.UniversityDegreeByDegree_Result)">
+          <FunctionImport Name="UniversityDegreeByDegree" ReturnType="Collection(frdbModel.UniversityDegreeByDegree_Result)">
             <Parameter Name="degree" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UniversityDegreeById" ReturnType="Collection(FRDBModel.UniversityDegreeById_Result)">
+          <FunctionImport Name="UniversityDegreeById" ReturnType="Collection(frdbModel.UniversityDegreeById_Result)">
             <Parameter Name="univDegId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="UpdateUserInfo">
@@ -1883,21 +1883,21 @@
             <Parameter Name="location" Mode="In" Type="Int32" />
             <Parameter Name="qualification" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UserAddHobbies" ReturnType="Collection(FRDBModel.UserAddHobbies_Result)">
+          <FunctionImport Name="UserAddHobbies" ReturnType="Collection(frdbModel.UserAddHobbies_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="hobby" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="UserAddInterests" ReturnType="Collection(FRDBModel.UserAddInterests_Result)">
+          <FunctionImport Name="UserAddInterests" ReturnType="Collection(frdbModel.UserAddInterests_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="interest" Mode="In" Type="Int32" />
             <Parameter Name="rating" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UserAddSkills" ReturnType="Collection(FRDBModel.UserAddSkills_Result)">
+          <FunctionImport Name="UserAddSkills" ReturnType="Collection(frdbModel.UserAddSkills_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="skill" Mode="In" Type="Int32" />
             <Parameter Name="rating" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UserSignIn" ReturnType="Collection(FRDBModel.UserSignIn_Result)">
+          <FunctionImport Name="UserSignIn" ReturnType="Collection(frdbModel.UserSignIn_Result)">
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="password" Mode="In" Type="String" />
           </FunctionImport>
@@ -2340,9 +2340,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FRDBModelStoreContainer" CdmEntityContainer="FRDBEntities">
+        <EntityContainerMapping StorageEntityContainer="frdbModelStoreContainer" CdmEntityContainer="FRDBEntities">
           <EntitySetMapping Name="CategoryHobbies">
-            <EntityTypeMapping TypeName="FRDBModel.CategoryHobby">
+            <EntityTypeMapping TypeName="frdbModel.CategoryHobby">
               <MappingFragment StoreEntitySet="CategoryHobby">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hobby" ColumnName="hobby" />
@@ -2351,7 +2351,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Degrees">
-            <EntityTypeMapping TypeName="FRDBModel.Degree">
+            <EntityTypeMapping TypeName="frdbModel.Degree">
               <MappingFragment StoreEntitySet="Degree">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -2360,7 +2360,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="DegreeCategories">
-            <EntityTypeMapping TypeName="FRDBModel.DegreeCategory">
+            <EntityTypeMapping TypeName="frdbModel.DegreeCategory">
               <MappingFragment StoreEntitySet="DegreeCategory">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category" ColumnName="category" />
@@ -2368,7 +2368,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hobbies">
-            <EntityTypeMapping TypeName="FRDBModel.Hobby">
+            <EntityTypeMapping TypeName="frdbModel.Hobby">
               <MappingFragment StoreEntitySet="Hobby">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -2376,7 +2376,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Interests">
-            <EntityTypeMapping TypeName="FRDBModel.Interest">
+            <EntityTypeMapping TypeName="frdbModel.Interest">
               <MappingFragment StoreEntitySet="Interest">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -2384,7 +2384,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Locations">
-            <EntityTypeMapping TypeName="FRDBModel.Location">
+            <EntityTypeMapping TypeName="frdbModel.Location">
               <MappingFragment StoreEntitySet="Locations">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -2392,7 +2392,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Majors">
-            <EntityTypeMapping TypeName="FRDBModel.Major">
+            <EntityTypeMapping TypeName="frdbModel.Major">
               <MappingFragment StoreEntitySet="Major">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -2401,7 +2401,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MajorInterests">
-            <EntityTypeMapping TypeName="FRDBModel.MajorInterest">
+            <EntityTypeMapping TypeName="frdbModel.MajorInterest">
               <MappingFragment StoreEntitySet="MajorInterest">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
@@ -2411,7 +2411,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="MajorSkills">
-            <EntityTypeMapping TypeName="FRDBModel.MajorSkill">
+            <EntityTypeMapping TypeName="frdbModel.MajorSkill">
               <MappingFragment StoreEntitySet="MajorSkill">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
@@ -2421,7 +2421,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PreDegrees">
-            <EntityTypeMapping TypeName="FRDBModel.PreDegree">
+            <EntityTypeMapping TypeName="frdbModel.PreDegree">
               <MappingFragment StoreEntitySet="PreDegree">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -2429,7 +2429,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PreDegreeLevels">
-            <EntityTypeMapping TypeName="FRDBModel.PreDegreeLevel">
+            <EntityTypeMapping TypeName="frdbModel.PreDegreeLevel">
               <MappingFragment StoreEntitySet="PreDegreeLevel">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="degreeLevel" ColumnName="degreeLevel" />
@@ -2437,7 +2437,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Preferences">
-            <EntityTypeMapping TypeName="FRDBModel.Preference">
+            <EntityTypeMapping TypeName="frdbModel.Preference">
               <MappingFragment StoreEntitySet="Preference">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
@@ -2446,7 +2446,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PreLevels">
-            <EntityTypeMapping TypeName="FRDBModel.PreLevel">
+            <EntityTypeMapping TypeName="frdbModel.PreLevel">
               <MappingFragment StoreEntitySet="PreLevel">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="preLevel1" ColumnName="preLevel" />
@@ -2454,7 +2454,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Recommendations">
-            <EntityTypeMapping TypeName="FRDBModel.Recommendation">
+            <EntityTypeMapping TypeName="frdbModel.Recommendation">
               <MappingFragment StoreEntitySet="Recommendation">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="user" ColumnName="user" />
@@ -2464,7 +2464,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Skills">
-            <EntityTypeMapping TypeName="FRDBModel.Skill">
+            <EntityTypeMapping TypeName="frdbModel.Skill">
               <MappingFragment StoreEntitySet="Skill">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -2472,7 +2472,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Universities">
-            <EntityTypeMapping TypeName="FRDBModel.University">
+            <EntityTypeMapping TypeName="frdbModel.University">
               <MappingFragment StoreEntitySet="University">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -2485,7 +2485,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UniversityDegrees">
-            <EntityTypeMapping TypeName="FRDBModel.UniversityDegree">
+            <EntityTypeMapping TypeName="frdbModel.UniversityDegree">
               <MappingFragment StoreEntitySet="UniversityDegree">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
@@ -2497,7 +2497,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UniversityDegreeFees">
-            <EntityTypeMapping TypeName="FRDBModel.UniversityDegreeFee">
+            <EntityTypeMapping TypeName="frdbModel.UniversityDegreeFee">
               <MappingFragment StoreEntitySet="UniversityDegreeFee">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="annualFee" ColumnName="annualFee" />
@@ -2505,7 +2505,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="FRDBModel.User">
+            <EntityTypeMapping TypeName="frdbModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="email" ColumnName="email" />
@@ -2514,7 +2514,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserHobbies">
-            <EntityTypeMapping TypeName="FRDBModel.UserHobby">
+            <EntityTypeMapping TypeName="frdbModel.UserHobby">
               <MappingFragment StoreEntitySet="UserHobby">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hobby" ColumnName="hobby" />
@@ -2523,7 +2523,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserInfoes">
-            <EntityTypeMapping TypeName="FRDBModel.UserInfo">
+            <EntityTypeMapping TypeName="frdbModel.UserInfo">
               <MappingFragment StoreEntitySet="UserInfo">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
@@ -2536,7 +2536,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserInterests">
-            <EntityTypeMapping TypeName="FRDBModel.UserInterest">
+            <EntityTypeMapping TypeName="frdbModel.UserInterest">
               <MappingFragment StoreEntitySet="UserInterest">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
@@ -2546,7 +2546,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="UserSkills">
-            <EntityTypeMapping TypeName="FRDBModel.UserSkill">
+            <EntityTypeMapping TypeName="frdbModel.UserSkill">
               <MappingFragment StoreEntitySet="UserSkill">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
@@ -2555,68 +2555,68 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="AddCategory" FunctionName="FRDBModel.Store.AddCategory">
+          <FunctionImportMapping FunctionImportName="AddCategory" FunctionName="frdbModel.Store.AddCategory">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddCategory_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddCategory_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddCategoryHobby" FunctionName="FRDBModel.Store.AddCategoryHobby">
+          <FunctionImportMapping FunctionImportName="AddCategoryHobby" FunctionName="frdbModel.Store.AddCategoryHobby">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddCategoryHobby_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddCategoryHobby_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hobby" ColumnName="hobby" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddDegree" FunctionName="FRDBModel.Store.AddDegree">
+          <FunctionImportMapping FunctionImportName="AddDegree" FunctionName="frdbModel.Store.AddDegree">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddDegree_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddDegree_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddHobby" FunctionName="FRDBModel.Store.AddHobby">
+          <FunctionImportMapping FunctionImportName="AddHobby" FunctionName="frdbModel.Store.AddHobby">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddHobby_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddHobby_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddInterest" FunctionName="FRDBModel.Store.AddInterest">
+          <FunctionImportMapping FunctionImportName="AddInterest" FunctionName="frdbModel.Store.AddInterest">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddInterest_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddInterest_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddLocation" FunctionName="FRDBModel.Store.AddLocation">
+          <FunctionImportMapping FunctionImportName="AddLocation" FunctionName="frdbModel.Store.AddLocation">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddLocation_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddLocation_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddMajor" FunctionName="FRDBModel.Store.AddMajor">
+          <FunctionImportMapping FunctionImportName="AddMajor" FunctionName="frdbModel.Store.AddMajor">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddMajor_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddMajor_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddMajorInterest" FunctionName="FRDBModel.Store.AddMajorInterest">
+          <FunctionImportMapping FunctionImportName="AddMajorInterest" FunctionName="frdbModel.Store.AddMajorInterest">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddMajorInterest_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddMajorInterest_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
                 <ScalarProperty Name="major" ColumnName="major" />
@@ -2624,9 +2624,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddMajorSkill" FunctionName="FRDBModel.Store.AddMajorSkill">
+          <FunctionImportMapping FunctionImportName="AddMajorSkill" FunctionName="frdbModel.Store.AddMajorSkill">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddMajorSkill_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddMajorSkill_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
@@ -2634,27 +2634,27 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddPreDegree" FunctionName="FRDBModel.Store.AddPreDegree">
+          <FunctionImportMapping FunctionImportName="AddPreDegree" FunctionName="frdbModel.Store.AddPreDegree">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddPreDegree_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddPreDegree_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="preLevel" ColumnName="preLevel" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddRecommenadation" FunctionName="FRDBModel.Store.AddRecommenadation" />
-          <FunctionImportMapping FunctionImportName="AddSkill" FunctionName="FRDBModel.Store.AddSkill">
+          <FunctionImportMapping FunctionImportName="AddRecommenadation" FunctionName="frdbModel.Store.AddRecommenadation" />
+          <FunctionImportMapping FunctionImportName="AddSkill" FunctionName="frdbModel.Store.AddSkill">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddSkill_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddSkill_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddUniversity" FunctionName="FRDBModel.Store.AddUniversity">
+          <FunctionImportMapping FunctionImportName="AddUniversity" FunctionName="frdbModel.Store.AddUniversity">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddUniversity_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddUniversity_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="location" ColumnName="location" />
@@ -2665,9 +2665,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddUniversityDegree" FunctionName="FRDBModel.Store.AddUniversityDegree">
+          <FunctionImportMapping FunctionImportName="AddUniversityDegree" FunctionName="frdbModel.Store.AddUniversityDegree">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddUniversityDegree_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddUniversityDegree_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="percentage" ColumnName="percentage" />
@@ -2678,18 +2678,18 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddUserPreferences" FunctionName="FRDBModel.Store.AddUserPreferences">
+          <FunctionImportMapping FunctionImportName="AddUserPreferences" FunctionName="frdbModel.Store.AddUserPreferences">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddUserPreferences_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddUserPreferences_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="user" ColumnName="user" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="AddUserRecomendation" FunctionName="FRDBModel.Store.AddUserRecomendation">
+          <FunctionImportMapping FunctionImportName="AddUserRecomendation" FunctionName="frdbModel.Store.AddUserRecomendation">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.AddUserRecomendation_Result">
+              <ComplexTypeMapping TypeName="frdbModel.AddUserRecomendation_Result">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Major" ColumnName="Major" />
                 <ScalarProperty Name="Degree" ColumnName="Degree" />
@@ -2697,72 +2697,72 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="DeleteRecommenadations" FunctionName="FRDBModel.Store.DeleteRecommenadations" />
-          <FunctionImportMapping FunctionImportName="DeleteUserHobbies" FunctionName="FRDBModel.Store.DeleteUserHobbies" />
-          <FunctionImportMapping FunctionImportName="DeleteUserInterest" FunctionName="FRDBModel.Store.DeleteUserInterest" />
-          <FunctionImportMapping FunctionImportName="DeleteUserSkills" FunctionName="FRDBModel.Store.DeleteUserSkills" />
-          <FunctionImportMapping FunctionImportName="GetAllCategory" FunctionName="FRDBModel.Store.GetAllCategory">
+          <FunctionImportMapping FunctionImportName="DeleteRecommenadations" FunctionName="frdbModel.Store.DeleteRecommenadations" />
+          <FunctionImportMapping FunctionImportName="DeleteUserHobbies" FunctionName="frdbModel.Store.DeleteUserHobbies" />
+          <FunctionImportMapping FunctionImportName="DeleteUserInterest" FunctionName="frdbModel.Store.DeleteUserInterest" />
+          <FunctionImportMapping FunctionImportName="DeleteUserSkills" FunctionName="frdbModel.Store.DeleteUserSkills" />
+          <FunctionImportMapping FunctionImportName="GetAllCategory" FunctionName="frdbModel.Store.GetAllCategory">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllCategory_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllCategory_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllCategoryHobby" FunctionName="FRDBModel.Store.GetAllCategoryHobby">
+          <FunctionImportMapping FunctionImportName="GetAllCategoryHobby" FunctionName="frdbModel.Store.GetAllCategoryHobby">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllCategoryHobby_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllCategoryHobby_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hobby" ColumnName="hobby" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllDegrees" FunctionName="FRDBModel.Store.GetAllDegrees">
+          <FunctionImportMapping FunctionImportName="GetAllDegrees" FunctionName="frdbModel.Store.GetAllDegrees">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllDegrees_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllDegrees_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllHobby" FunctionName="FRDBModel.Store.GetAllHobby">
+          <FunctionImportMapping FunctionImportName="GetAllHobby" FunctionName="frdbModel.Store.GetAllHobby">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllHobby_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllHobby_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllInterest" FunctionName="FRDBModel.Store.GetAllInterest">
+          <FunctionImportMapping FunctionImportName="GetAllInterest" FunctionName="frdbModel.Store.GetAllInterest">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllInterest_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllInterest_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllLocation" FunctionName="FRDBModel.Store.GetAllLocation">
+          <FunctionImportMapping FunctionImportName="GetAllLocation" FunctionName="frdbModel.Store.GetAllLocation">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllLocation_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllLocation_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllMajor" FunctionName="FRDBModel.Store.GetAllMajor">
+          <FunctionImportMapping FunctionImportName="GetAllMajor" FunctionName="frdbModel.Store.GetAllMajor">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllMajor_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllMajor_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllMajorInterest" FunctionName="FRDBModel.Store.GetAllMajorInterest">
+          <FunctionImportMapping FunctionImportName="GetAllMajorInterest" FunctionName="frdbModel.Store.GetAllMajorInterest">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllMajorInterest_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllMajorInterest_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
                 <ScalarProperty Name="major" ColumnName="major" />
@@ -2770,9 +2770,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllMajorSkill" FunctionName="FRDBModel.Store.GetAllMajorSkill">
+          <FunctionImportMapping FunctionImportName="GetAllMajorSkill" FunctionName="frdbModel.Store.GetAllMajorSkill">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllMajorSkill_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllMajorSkill_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
@@ -2780,26 +2780,26 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllPreDegree" FunctionName="FRDBModel.Store.GetAllPreDegree">
+          <FunctionImportMapping FunctionImportName="GetAllPreDegree" FunctionName="frdbModel.Store.GetAllPreDegree">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllPreDegree_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllPreDegree_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="preLevel" ColumnName="preLevel" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllSkill" FunctionName="FRDBModel.Store.GetAllSkill">
+          <FunctionImportMapping FunctionImportName="GetAllSkill" FunctionName="frdbModel.Store.GetAllSkill">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllSkill_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllSkill_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllUniversity" FunctionName="FRDBModel.Store.GetAllUniversity">
+          <FunctionImportMapping FunctionImportName="GetAllUniversity" FunctionName="frdbModel.Store.GetAllUniversity">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllUniversity_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllUniversity_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="location" ColumnName="location" />
@@ -2810,9 +2810,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllUniversityDegree" FunctionName="FRDBModel.Store.GetAllUniversityDegree">
+          <FunctionImportMapping FunctionImportName="GetAllUniversityDegree" FunctionName="frdbModel.Store.GetAllUniversityDegree">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllUniversityDegree_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllUniversityDegree_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="percentage" ColumnName="percentage" />
@@ -2823,9 +2823,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetAllUsers" FunctionName="FRDBModel.Store.GetAllUsers">
+          <FunctionImportMapping FunctionImportName="GetAllUsers" FunctionName="frdbModel.Store.GetAllUsers">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetAllUsers_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetAllUsers_Result">
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
@@ -2836,154 +2836,154 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCategoryById" FunctionName="FRDBModel.Store.GetCategoryById">
+          <FunctionImportMapping FunctionImportName="GetCategoryById" FunctionName="frdbModel.Store.GetCategoryById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetCategoryById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetCategoryById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCategoryByName" FunctionName="FRDBModel.Store.GetCategoryByName">
+          <FunctionImportMapping FunctionImportName="GetCategoryByName" FunctionName="frdbModel.Store.GetCategoryByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetCategoryByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetCategoryByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCategoryHobbyByCategory" FunctionName="FRDBModel.Store.GetCategoryHobbyByCategory">
+          <FunctionImportMapping FunctionImportName="GetCategoryHobbyByCategory" FunctionName="frdbModel.Store.GetCategoryHobbyByCategory">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetCategoryHobbyByCategory_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetCategoryHobbyByCategory_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hobby" ColumnName="hobby" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCategoryHobbyByHobby" FunctionName="FRDBModel.Store.GetCategoryHobbyByHobby">
+          <FunctionImportMapping FunctionImportName="GetCategoryHobbyByHobby" FunctionName="frdbModel.Store.GetCategoryHobbyByHobby">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetCategoryHobbyByHobby_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetCategoryHobbyByHobby_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hobby" ColumnName="hobby" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetCategoryHobbyById" FunctionName="FRDBModel.Store.GetCategoryHobbyById">
+          <FunctionImportMapping FunctionImportName="GetCategoryHobbyById" FunctionName="frdbModel.Store.GetCategoryHobbyById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetCategoryHobbyById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetCategoryHobbyById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hobby" ColumnName="hobby" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetDegreeByCategory" FunctionName="FRDBModel.Store.GetDegreeByCategory">
+          <FunctionImportMapping FunctionImportName="GetDegreeByCategory" FunctionName="frdbModel.Store.GetDegreeByCategory">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetDegreeByCategory_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetDegreeByCategory_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetDegreeById" FunctionName="FRDBModel.Store.GetDegreeById">
+          <FunctionImportMapping FunctionImportName="GetDegreeById" FunctionName="frdbModel.Store.GetDegreeById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetDegreeById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetDegreeById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetDegreeByName" FunctionName="FRDBModel.Store.GetDegreeByName">
+          <FunctionImportMapping FunctionImportName="GetDegreeByName" FunctionName="frdbModel.Store.GetDegreeByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetDegreeByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetDegreeByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="category" ColumnName="category" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetHobbyById" FunctionName="FRDBModel.Store.GetHobbyById">
+          <FunctionImportMapping FunctionImportName="GetHobbyById" FunctionName="frdbModel.Store.GetHobbyById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetHobbyById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetHobbyById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetHobbyByName" FunctionName="FRDBModel.Store.GetHobbyByName">
+          <FunctionImportMapping FunctionImportName="GetHobbyByName" FunctionName="frdbModel.Store.GetHobbyByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetHobbyByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetHobbyByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetInterestById" FunctionName="FRDBModel.Store.GetInterestById">
+          <FunctionImportMapping FunctionImportName="GetInterestById" FunctionName="frdbModel.Store.GetInterestById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetInterestById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetInterestById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetInterestByName" FunctionName="FRDBModel.Store.GetInterestByName">
+          <FunctionImportMapping FunctionImportName="GetInterestByName" FunctionName="frdbModel.Store.GetInterestByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetInterestByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetInterestByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetLocationById" FunctionName="FRDBModel.Store.GetLocationById">
+          <FunctionImportMapping FunctionImportName="GetLocationById" FunctionName="frdbModel.Store.GetLocationById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetLocationById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetLocationById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetLocationByName" FunctionName="FRDBModel.Store.GetLocationByName">
+          <FunctionImportMapping FunctionImportName="GetLocationByName" FunctionName="frdbModel.Store.GetLocationByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetLocationByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetLocationByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorByDegree" FunctionName="FRDBModel.Store.GetMajorByDegree">
+          <FunctionImportMapping FunctionImportName="GetMajorByDegree" FunctionName="frdbModel.Store.GetMajorByDegree">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorByDegree_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="degree" ColumnName="degree" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorById" FunctionName="FRDBModel.Store.GetMajorById">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorByDegree_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorByName" FunctionName="FRDBModel.Store.GetMajorByName">
+          <FunctionImportMapping FunctionImportName="GetMajorById" FunctionName="frdbModel.Store.GetMajorById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorInterestById" FunctionName="FRDBModel.Store.GetMajorInterestById">
+          <FunctionImportMapping FunctionImportName="GetMajorByName" FunctionName="frdbModel.Store.GetMajorByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorInterestById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorByName_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="degree" ColumnName="degree" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetMajorInterestById" FunctionName="frdbModel.Store.GetMajorInterestById">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorInterestById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
                 <ScalarProperty Name="major" ColumnName="major" />
@@ -2991,9 +2991,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorInterestByInterest" FunctionName="FRDBModel.Store.GetMajorInterestByInterest">
+          <FunctionImportMapping FunctionImportName="GetMajorInterestByInterest" FunctionName="frdbModel.Store.GetMajorInterestByInterest">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorInterestByInterest_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorInterestByInterest_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
                 <ScalarProperty Name="major" ColumnName="major" />
@@ -3001,9 +3001,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorInterestByMajor" FunctionName="FRDBModel.Store.GetMajorInterestByMajor">
+          <FunctionImportMapping FunctionImportName="GetMajorInterestByMajor" FunctionName="frdbModel.Store.GetMajorInterestByMajor">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorInterestByMajor_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorInterestByMajor_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
                 <ScalarProperty Name="major" ColumnName="major" />
@@ -3011,9 +3011,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorSkillById" FunctionName="FRDBModel.Store.GetMajorSkillById">
+          <FunctionImportMapping FunctionImportName="GetMajorSkillById" FunctionName="frdbModel.Store.GetMajorSkillById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorSkillById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorSkillById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
@@ -3021,9 +3021,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorSkillByMajor" FunctionName="FRDBModel.Store.GetMajorSkillByMajor">
+          <FunctionImportMapping FunctionImportName="GetMajorSkillByMajor" FunctionName="frdbModel.Store.GetMajorSkillByMajor">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorSkillByMajor_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorSkillByMajor_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
@@ -3031,9 +3031,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetMajorSkillBySkill" FunctionName="FRDBModel.Store.GetMajorSkillBySkill">
+          <FunctionImportMapping FunctionImportName="GetMajorSkillBySkill" FunctionName="frdbModel.Store.GetMajorSkillBySkill">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetMajorSkillBySkill_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetMajorSkillBySkill_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
@@ -3041,27 +3041,27 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetPreDegreeById" FunctionName="FRDBModel.Store.GetPreDegreeById">
+          <FunctionImportMapping FunctionImportName="GetPreDegreeById" FunctionName="frdbModel.Store.GetPreDegreeById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetPreDegreeById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetPreDegreeById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="preLevel" ColumnName="preLevel" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetPreDegreeByName" FunctionName="FRDBModel.Store.GetPreDegreeByName">
+          <FunctionImportMapping FunctionImportName="GetPreDegreeByName" FunctionName="frdbModel.Store.GetPreDegreeByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetPreDegreeByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetPreDegreeByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="preLevel" ColumnName="preLevel" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetRecommenadation" FunctionName="FRDBModel.Store.GetRecommenadation">
+          <FunctionImportMapping FunctionImportName="GetRecommenadation" FunctionName="frdbModel.Store.GetRecommenadation">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetRecommenadation_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetRecommenadation_Result">
                 <ScalarProperty Name="user" ColumnName="user" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="name" ColumnName="name" />
@@ -3075,25 +3075,25 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetSkillById" FunctionName="FRDBModel.Store.GetSkillById">
+          <FunctionImportMapping FunctionImportName="GetSkillById" FunctionName="frdbModel.Store.GetSkillById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetSkillById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetSkillById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetSkillByName" FunctionName="FRDBModel.Store.GetSkillByName">
+          <FunctionImportMapping FunctionImportName="GetSkillByName" FunctionName="frdbModel.Store.GetSkillByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetSkillByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetSkillByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetTestData" FunctionName="FRDBModel.Store.GetTestData">
+          <FunctionImportMapping FunctionImportName="GetTestData" FunctionName="frdbModel.Store.GetTestData">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetTestData_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetTestData_Result">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
                 <ScalarProperty Name="skillrate" ColumnName="skillrate" />
@@ -3102,9 +3102,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetTrainingData" FunctionName="FRDBModel.Store.GetTrainingData">
+          <FunctionImportMapping FunctionImportName="GetTrainingData" FunctionName="frdbModel.Store.GetTrainingData">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetTrainingData_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetTrainingData_Result">
                 <ScalarProperty Name="MajorLabel" ColumnName="MajorLabel" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
                 <ScalarProperty Name="skillrate" ColumnName="skillrate" />
@@ -3113,9 +3113,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUniversityById" FunctionName="FRDBModel.Store.GetUniversityById">
+          <FunctionImportMapping FunctionImportName="GetUniversityById" FunctionName="frdbModel.Store.GetUniversityById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUniversityById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUniversityById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="location" ColumnName="location" />
@@ -3126,9 +3126,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUniversityByLocation" FunctionName="FRDBModel.Store.GetUniversityByLocation">
+          <FunctionImportMapping FunctionImportName="GetUniversityByLocation" FunctionName="frdbModel.Store.GetUniversityByLocation">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUniversityByLocation_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUniversityByLocation_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="location" ColumnName="location" />
@@ -3139,9 +3139,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUniversityByName" FunctionName="FRDBModel.Store.GetUniversityByName">
+          <FunctionImportMapping FunctionImportName="GetUniversityByName" FunctionName="frdbModel.Store.GetUniversityByName">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUniversityByName_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUniversityByName_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="location" ColumnName="location" />
@@ -3152,9 +3152,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUniversityByType" FunctionName="FRDBModel.Store.GetUniversityByType">
+          <FunctionImportMapping FunctionImportName="GetUniversityByType" FunctionName="frdbModel.Store.GetUniversityByType">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUniversityByType_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUniversityByType_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="location" ColumnName="location" />
@@ -3165,11 +3165,11 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUserHobbies" FunctionName="FRDBModel.Store.GetUserHobbies" />
-          <FunctionImportMapping FunctionImportName="GetUserId" FunctionName="FRDBModel.Store.GetUserId" />
-          <FunctionImportMapping FunctionImportName="GetUserInfo" FunctionName="FRDBModel.Store.GetUserInfo">
+          <FunctionImportMapping FunctionImportName="GetUserHobbies" FunctionName="frdbModel.Store.GetUserHobbies" />
+          <FunctionImportMapping FunctionImportName="GetUserId" FunctionName="frdbModel.Store.GetUserId" />
+          <FunctionImportMapping FunctionImportName="GetUserInfo" FunctionName="frdbModel.Store.GetUserInfo">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUserInfo_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUserInfo_Result">
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
                 <ScalarProperty Name="location" ColumnName="location" />
@@ -3179,25 +3179,25 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUserInterests" FunctionName="FRDBModel.Store.GetUserInterests">
+          <FunctionImportMapping FunctionImportName="GetUserInterests" FunctionName="frdbModel.Store.GetUserInterests">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUserInterests_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUserInterests_Result">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUserPreferences" FunctionName="FRDBModel.Store.GetUserPreferences">
+          <FunctionImportMapping FunctionImportName="GetUserPreferences" FunctionName="frdbModel.Store.GetUserPreferences">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUserPreferences_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUserPreferences_Result">
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
                 <ScalarProperty Name="Degree" ColumnName="Degree" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUserRecomendations" FunctionName="FRDBModel.Store.GetUserRecomendations">
+          <FunctionImportMapping FunctionImportName="GetUserRecomendations" FunctionName="frdbModel.Store.GetUserRecomendations">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUserRecomendations_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUserRecomendations_Result">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="Major" ColumnName="Major" />
                 <ScalarProperty Name="Degree" ColumnName="Degree" />
@@ -3205,17 +3205,17 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="GetUserSkills" FunctionName="FRDBModel.Store.GetUserSkills">
+          <FunctionImportMapping FunctionImportName="GetUserSkills" FunctionName="frdbModel.Store.GetUserSkills">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.GetUserSkills_Result">
+              <ComplexTypeMapping TypeName="frdbModel.GetUserSkills_Result">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UniversityDegreeByDegree" FunctionName="FRDBModel.Store.UniversityDegreeByDegree">
+          <FunctionImportMapping FunctionImportName="UniversityDegreeByDegree" FunctionName="frdbModel.Store.UniversityDegreeByDegree">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.UniversityDegreeByDegree_Result">
+              <ComplexTypeMapping TypeName="frdbModel.UniversityDegreeByDegree_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="percentage" ColumnName="percentage" />
@@ -3226,9 +3226,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UniversityDegreeById" FunctionName="FRDBModel.Store.UniversityDegreeById">
+          <FunctionImportMapping FunctionImportName="UniversityDegreeById" FunctionName="frdbModel.Store.UniversityDegreeById">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.UniversityDegreeById_Result">
+              <ComplexTypeMapping TypeName="frdbModel.UniversityDegreeById_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="degree" ColumnName="degree" />
                 <ScalarProperty Name="percentage" ColumnName="percentage" />
@@ -3239,19 +3239,19 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UpdateUserInfo" FunctionName="FRDBModel.Store.UpdateUserInfo" />
-          <FunctionImportMapping FunctionImportName="UserAddHobbies" FunctionName="FRDBModel.Store.UserAddHobbies">
+          <FunctionImportMapping FunctionImportName="UpdateUserInfo" FunctionName="frdbModel.Store.UpdateUserInfo" />
+          <FunctionImportMapping FunctionImportName="UserAddHobbies" FunctionName="frdbModel.Store.UserAddHobbies">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.UserAddHobbies_Result">
+              <ComplexTypeMapping TypeName="frdbModel.UserAddHobbies_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="hobby" ColumnName="hobby" />
                 <ScalarProperty Name="user" ColumnName="user" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UserAddInterests" FunctionName="FRDBModel.Store.UserAddInterests">
+          <FunctionImportMapping FunctionImportName="UserAddInterests" FunctionName="frdbModel.Store.UserAddInterests">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.UserAddInterests_Result">
+              <ComplexTypeMapping TypeName="frdbModel.UserAddInterests_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="interest" ColumnName="interest" />
                 <ScalarProperty Name="user" ColumnName="user" />
@@ -3259,9 +3259,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UserAddSkills" FunctionName="FRDBModel.Store.UserAddSkills">
+          <FunctionImportMapping FunctionImportName="UserAddSkills" FunctionName="frdbModel.Store.UserAddSkills">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.UserAddSkills_Result">
+              <ComplexTypeMapping TypeName="frdbModel.UserAddSkills_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="skill" ColumnName="skill" />
                 <ScalarProperty Name="rating" ColumnName="rating" />
@@ -3269,9 +3269,9 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UserSignIn" FunctionName="FRDBModel.Store.UserSignIn">
+          <FunctionImportMapping FunctionImportName="UserSignIn" FunctionName="frdbModel.Store.UserSignIn">
             <ResultMapping>
-              <ComplexTypeMapping TypeName="FRDBModel.UserSignIn_Result">
+              <ComplexTypeMapping TypeName="frdbModel.UserSignIn_Result">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
                 <ScalarProperty Name="lastName" ColumnName="lastName" />
@@ -3282,7 +3282,7 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="UserSignUp" FunctionName="FRDBModel.Store.UserSignUp" />
+          <FunctionImportMapping FunctionImportName="UserSignUp" FunctionName="frdbModel.Store.UserSignUp" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

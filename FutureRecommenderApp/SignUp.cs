@@ -21,7 +21,7 @@ namespace FutureRecommenderApp
         public string name { get; set; }
 
     }
-    [Activity(Label = "SignUp")]
+    [Activity(Label = "SignUp", Theme = "@android:style/Theme.Holo.Light.DarkActionBar")]
     public class SignUp : Activity
     {
 
@@ -119,6 +119,7 @@ namespace FutureRecommenderApp
             {
                 Toast.MakeText(this, "User registed Sucessfully!", ToastLength.Long).Show();
                 StartActivity(typeof(MainActivity));
+                this.Finish();
             }
 
 

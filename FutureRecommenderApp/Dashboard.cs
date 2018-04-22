@@ -16,7 +16,7 @@ using Android.Views;
 
 namespace FutureRecommenderApp
 {
-    [Activity(Label = "Dashboard" )]
+    [Activity(Label = "Dashboard", Theme = "@android:style/Theme.Holo.Light.DarkActionBar")]
     public class Dashboard : TabActivity
     {
        
@@ -25,8 +25,8 @@ namespace FutureRecommenderApp
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.dashboard);
          
-            CreateTab(typeof(Recommendation), "whats_on", "What's On");
-            CreateTab(typeof(Profile), "speakers", "Speakers");
+            CreateTab(typeof(Recommendation), "Recommendations", "Recommendations");
+            CreateTab(typeof(Profile), "Profile", "Profile");
            
 
         }

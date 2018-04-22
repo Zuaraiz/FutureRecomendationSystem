@@ -1,35 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net.Http;
-using Newtonsoft.Json;
 using System.Text;
-
+using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
+using Android.Preferences;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
-using FutureRecommenderApp.Resources.extra;
-using Android.Preferences;
+using Newtonsoft.Json;
 
 namespace FutureRecommenderApp
 {
-  
-    [Activity(Label = "Recommendation", Theme = "@android:style/Theme.Holo.Light")]
-    public class Recommendation : Activity
+    [Activity(Label = "AddHobby")]
+    public class AddHobby : Activity
     {
-        ListView listView;
-        List<RecommendModel> data;
-        string email;
+        String email;
+        List<GetAllSkill_Result> data;
 
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            data = new List<RecommendModel>();
-            SetContentView(Resource.Layout.Recommendation);
+            SetContentView(Resource.Layout.addHobby);
+            data = new List<GetAllSkill_Result>();
             ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(ApplicationContext);
             email = prefs.GetString("email", "empty");
 
@@ -38,29 +34,34 @@ namespace FutureRecommenderApp
                 StartActivity(typeof(MainActivity));
                 this.Finish();
             }
-          
-            listView = FindViewById<ListView>(Resource.Id.listView1);
+            ListView listView = FindViewById<ListView>(Resource.Id.listViewHobby);
             try
             {
-                Task<string> task = recommeds();
-                var x = JsonConvert.DeserializeObject<RecommendModel[]>(task.Result);
-                foreach (RecommendModel a in x)
+                Task<string> task = getHobby();
+                var x = JsonConvert.DeserializeObject<GetAllSkill_Result[]>(task.Result);
+                foreach (GetAllSkill_Result a in x)
                 {
                     data.Add(a);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Toast.MakeText(this, "Error! Some Wrong Happen", ToastLength.Short).Show();
             }
-           
-            
-            listView.Adapter = new CusotmListAdapter(this, data);
+
+
+            listView.Adapter = new AddHobbyAdapter(this, data,email);
+
 
             // Create your application here
         }
+        public override void OnBackPressed()
+        {
 
-        private async Task<string> recommeds()
+            StartActivity(typeof(Dashboard));
+            this.Finish();
+        }
+        private async Task<string> getHobby()
         {
             var client = new HttpClient();
             string r = "";
@@ -68,13 +69,13 @@ namespace FutureRecommenderApp
 
             var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
             HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");
-            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/get/Recommendation", content).ConfigureAwait(false);
+            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/get/hobbies", content).ConfigureAwait(false);
             if (result.IsSuccessStatusCode)
             {
                 r = await result.Content.ReadAsStringAsync();
             }
             return r;
         }
-
+       
     }
 }

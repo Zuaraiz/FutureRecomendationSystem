@@ -29,18 +29,17 @@
             android:layout_height="match_parent"
             android:id="@+id/email">
             <TextView
-                android:text="Email"
+                android:text="First Name"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/textView1"
                 android:layout_weight="4" />
-            <TextView
+            <EditText
                 android:text="Text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/_email"
+                android:layout_height="wrap_content"
+                android:id="@+id/_fname"
                 android:layout_weight="2"
                 android:textColor="@color/my_gray" />
         </LinearLayout>
@@ -52,41 +51,17 @@
             android:layout_height="wrap_content"
             android:id="@+id/name">
             <TextView
-                android:text="Name"
+                android:text="Last Name"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/textView3"
                 android:layout_weight="4" />
-            <TextView
+            <EditText
                 android:text="Text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/_name"
-                android:layout_weight="2"
-                android:textColor="@color/my_gray" />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:minWidth="25px"
-            android:minHeight="25px"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/city">
-            <TextView
-                android:text="City"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/textView5"
-                android:layout_weight="4" />
-            <TextView
-                android:text="Text"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/_city"
+                android:layout_height="wrap_content"
+                android:id="@+id/_lname"
                 android:layout_weight="2"
                 android:textColor="@color/my_gray" />
         </LinearLayout>
@@ -100,14 +75,14 @@
             <TextView
                 android:text="Budget"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/textView7"
                 android:layout_weight="4" />
-            <TextView
+            <EditText
                 android:text="Text"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:id="@+id/_budget"
                 android:layout_weight="2"
@@ -124,18 +99,36 @@
             <TextView
                 android:text="Last Degree"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/xya"
+                android:id="@+id/textView2"
                 android:layout_weight="4" />
-            <TextView
-                android:text="Text"
+            <Spinner
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner2"
+                android:layout_weight="2" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:minWidth="25px"
+            android:minHeight="25px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/city"
+            android:layout_marginBottom="10dp">
+            <TextView
+                android:text="City"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:id="@+id/_qualification"
-                android:layout_weight="2"
-                android:textColor="@color/my_gray" />
+                android:id="@+id/textView1"
+                android:layout_weight="4" />
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner1"
+                android:layout_weight="2" />
         </LinearLayout>
         <LinearLayout
             android:orientation="vertical"
@@ -143,8 +136,7 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/hobby"
-            android:layout_marginBottom="10dp">
+            android:id="@+id/hobby">
             <LinearLayout
                 android:orientation="horizontal"
                 android:minWidth="25px"
@@ -162,10 +154,10 @@
                     android:textStyle="bold"
                     android:textColor="@color/my_blue" />
                 <Button
-                    android:text="Add Hobbies"
+                    android:text="Delete Hobby"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/addHobby"
+                    android:id="@+id/button1"
                     android:layout_weight="5"
                     android:background="@color/my_green"
                     android:textColor="#fff"
@@ -185,8 +177,7 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/skill"
-            android:layout_marginBottom="10dp">
+            android:id="@+id/skill">
             <LinearLayout
                 android:orientation="horizontal"
                 android:minWidth="25px"
@@ -204,10 +195,10 @@
                     android:textStyle="bold"
                     android:textColor="@color/my_blue" />
                 <Button
-                    android:text="Add Skills"
+                    android:text="Delete Skills"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/addSkill"
+                    android:id="@+id/button2"
                     android:layout_weight="5"
                     android:background="@color/my_green"
                     android:textColor="#fff"
@@ -227,8 +218,7 @@
             android:minHeight="25px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/interest"
-            android:layout_marginBottom="20dp">
+            android:id="@+id/interest">
             <LinearLayout
                 android:orientation="horizontal"
                 android:minWidth="25px"
@@ -246,10 +236,10 @@
                     android:textStyle="bold"
                     android:textColor="@color/my_blue" />
                 <Button
-                    android:text="Add interests"
+                    android:text="Delete Interests"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/addInterest"
+                    android:id="@+id/button3"
                     android:layout_weight="5"
                     android:background="@color/my_green"
                     android:textColor="#fff"
@@ -264,10 +254,10 @@
                 android:textColor="@color/my_gray" />
         </LinearLayout>
         <Button
-            android:text="Edit Profile"
+            android:text="Save"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/goToEditProfile"
+            android:id="@+id/button4"
             android:background="@color/my_green"
             android:textColor="#fff"
             android:textStyle="bold" />
