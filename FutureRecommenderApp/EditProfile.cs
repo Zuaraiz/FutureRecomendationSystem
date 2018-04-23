@@ -140,14 +140,14 @@ namespace FutureRecommenderApp
             Button button1 = FindViewById<Button>(Resource.Id.button3);
 
             button1.Click += delegate {
-                StartActivity(typeof(AddInterest));
+                StartActivity(typeof(DeleteInterests));
                 this.Finish();
 
             };
             Button button2 = FindViewById<Button>(Resource.Id.button1);
 
             button2.Click += delegate {
-                StartActivity(typeof(AddHobby));
+                StartActivity(typeof(DeleteHobbies));
                 this.Finish();
 
             };

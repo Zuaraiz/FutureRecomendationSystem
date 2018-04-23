@@ -15,19 +15,18 @@ using Newtonsoft.Json;
 
 namespace FutureRecommenderApp
 {
-    [Activity(Label = "Delete Skill")]
-    public class DeleteSkills : Activity
+    [Activity(Label = "DeleteHobbies")]
+    public class DeleteHobbies : Activity
     {
         String email;
-        List<GetUserSkills_Result> data;
-        List<string> skillNames;
+        List<String> data;
         int SelectedId, SelectedRating = 60;
         String SelectedSkill;
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.deleteSkill);
-            data = new List<GetUserSkills_Result>();
+            SetContentView(Resource.Layout.deleteHobby);
+            data = new List<String>();
             ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(ApplicationContext);
             email = prefs.GetString("email", "empty");
 
@@ -36,18 +35,16 @@ namespace FutureRecommenderApp
                 StartActivity(typeof(MainActivity));
                 this.Finish();
             }
-          
+
             try
             {
-                Task<string> task = getUserSkill();
-                var x = JsonConvert.DeserializeObject<GetUserSkills_Result[]>(task.Result);
-                foreach (GetUserSkills_Result a in x)
+                Task<string> task = getUserHobby();
+                var x = JsonConvert.DeserializeObject<String[]>(task.Result);
+                foreach (String a in x)
                 {
                     data.Add(a);
                 }
-                skillNames = new List<string>();
-                foreach (var item in data)
-                    skillNames.Add(item.name);
+              
             }
             catch (Exception e)
             {
@@ -59,13 +56,13 @@ namespace FutureRecommenderApp
 
             spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
             var adapter = new ArrayAdapter<string>(this,
-             Android.Resource.Layout.SimpleSpinnerItem, skillNames);
+             Android.Resource.Layout.SimpleSpinnerItem, data);
 
             adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
             spinner.Adapter = adapter;
 
             Button button = FindViewById<Button>(Resource.Id.AddSkill);
-            if (skillNames.Count == 0)
+            if (data.Count == 0)
             {
                 button.Enabled = false;
             }
@@ -76,15 +73,15 @@ namespace FutureRecommenderApp
             button.Click += delegate {
                 spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
 
-                Task<string> task = DeleteSkill(email, SelectedSkill);
+                Task<string> task = DeleteInterest(email, SelectedSkill);
                 var x = JsonConvert.DeserializeObject(task.Result);
-                skillNames.Remove(SelectedSkill);
+                data.Remove(SelectedSkill);
 
-                data.Remove(new GetUserSkills_Result {rating = SelectedId, name = SelectedSkill });
+              
                 Toast.MakeText(this, "Skill Deleted Sucessfully", ToastLength.Short).Show();
 
                 adapter = new ArrayAdapter<string>(this,
-            Android.Resource.Layout.SimpleSpinnerItem, skillNames);
+            Android.Resource.Layout.SimpleSpinnerItem, data);
 
                 adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
                 spinner.Adapter = adapter;
@@ -102,7 +99,7 @@ namespace FutureRecommenderApp
             StartActivity(typeof(Dashboard));
             this.Finish();
         }
-        private async Task<string> getUserSkill()
+        private async Task<string> getUserHobby()
         {
             var client = new HttpClient();
             string r = "";
@@ -110,14 +107,14 @@ namespace FutureRecommenderApp
 
             var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
             HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");
-            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/user/skills", content).ConfigureAwait(false);
+            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/user/hobbies", content).ConfigureAwait(false);
             if (result.IsSuccessStatusCode)
             {
                 r = await result.Content.ReadAsStringAsync();
             }
             return r;
         }
-        private async Task<string> DeleteSkill(string email, string name)
+        private async Task<string> DeleteInterest(string email, string name)
         {
             var client = new HttpClient();
 
@@ -131,7 +128,7 @@ namespace FutureRecommenderApp
             var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
             HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");
 
-            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/delete/skills", content).ConfigureAwait(false);
+            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/delete/interest", content).ConfigureAwait(false);
             if (result.IsSuccessStatusCode)
             {
                 r = await result.Content.ReadAsStringAsync();
@@ -141,8 +138,8 @@ namespace FutureRecommenderApp
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
             Spinner spinner = (Spinner)sender;
-            SelectedId = data[e.Position].rating;
-            SelectedSkill = data[e.Position].name;
+          
+            SelectedSkill = data[e.Position];
 
         }
     }

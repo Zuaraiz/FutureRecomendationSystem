@@ -26,6 +26,7 @@ namespace Server.Models
         public decimal fee { set; get; }
         public int rating { set;get;} 
         public string url { set; get; }
+        public string ratingType { set; get; }
 
     }
     public partial class UserSkills:UserAddSkills_Result

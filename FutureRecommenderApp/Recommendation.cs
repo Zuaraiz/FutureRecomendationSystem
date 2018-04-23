@@ -38,7 +38,7 @@ namespace FutureRecommenderApp
                 StartActivity(typeof(MainActivity));
                 this.Finish();
             }
-          
+
             listView = FindViewById<ListView>(Resource.Id.listView1);
             try
             {
@@ -49,17 +49,38 @@ namespace FutureRecommenderApp
                     data.Add(a);
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Toast.MakeText(this, "Error! Some Wrong Happen", ToastLength.Short).Show();
             }
-           
-            
+
+
             listView.Adapter = new CusotmListAdapter(this, data);
+            listView.ItemClick += (object sender, AdapterView.ItemClickEventArgs e) =>
+            {
 
-            // Create your application here
+                RecommendModel selectedFromList = data[e.Position];
+
+                ShareToBrowser(selectedFromList.url);
+
+                // Create your application here
+            };
+       }
+        private void ShareToBrowser(string url)
+        {
+            if (!url.StartsWith("http"))
+            {
+                url = "http://" + url;
+            }
+
+            Android.Net.Uri uri = Android.Net.Uri.Parse(url);
+            Intent intent = new Intent(Intent.ActionView);
+            intent.SetData(uri);
+
+            Intent chooser = Intent.CreateChooser(intent, "Open with");
+
+            this.StartActivity(chooser);
         }
-
         private async Task<string> recommeds()
         {
             var client = new HttpClient();

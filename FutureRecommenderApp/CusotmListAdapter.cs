@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +20,7 @@ namespace FutureRecommenderApp.Resources.extra
         public decimal fee { set; get; }
         public int rating { set; get; }
         public string url { set; get; }
+        public string ratingType { set; get; }
 
     }
     class CusotmListAdapter : BaseAdapter<RecommendModel>
@@ -41,11 +42,11 @@ namespace FutureRecommenderApp.Resources.extra
             get { return list.Count; }
         }
 
+      
         public override long GetItemId(int position)
         {
             return position;
         }
-
         public override RecommendModel this[int index]
         {
             get { return list[index]; }
@@ -64,7 +65,19 @@ namespace FutureRecommenderApp.Resources.extra
             view.FindViewById<TextView>(Resource.Id.university).Text = item.UniversityName;
             view.FindViewById<TextView>(Resource.Id.degree).Text = item.Degree;
             view.FindViewById<TextView>(Resource.Id.budget).Text ="fee: "+item.fee.ToString()+ " perSemester.";
-
+            view.FindViewById<TextView>(Resource.Id.rating).Text = item.ratingType;
+            if (item.ratingType == "Highly Recommended")
+            {
+                view.FindViewById<TextView>(Resource.Id.rating).SetTextColor(Android.Graphics.Color.DarkSeaGreen);
+            }
+            else if (item.ratingType == "Moderatly Recommended")
+            {
+                view.FindViewById<TextView>(Resource.Id.rating).SetTextColor(Android.Graphics.Color.Yellow);
+            }
+            else
+            {
+                view.FindViewById<TextView>(Resource.Id.rating).SetTextColor(Android.Graphics.Color.OrangeRed);
+            }
 
 
             return view;

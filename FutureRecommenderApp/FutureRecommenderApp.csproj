@@ -91,13 +91,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddHobby.cs" />
-    <Compile Include="AddHobbyAdapter.cs" />
     <Compile Include="AddInterest.cs" />
     <Compile Include="AddSkill.cs" />
-    <Compile Include="AddInterestAdapter.cs" />
-    <Compile Include="AddSkillAdapter.cs" />
     <Compile Include="Dashboard.cs" />
-    <Compile Include="deleteSkillAdapter.cs" />
+    <Compile Include="DeleteHobbies.cs" />
+    <Compile Include="DeleteInterests.cs" />
     <Compile Include="DeleteSkills.cs" />
     <Compile Include="EditProfile.cs" />
     <Compile Include="MainActivity.cs" />
@@ -152,6 +150,15 @@
     <AndroidResource Include="Resources\layout\deleteSkill.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\deleteHobby.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\deleteInterest.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\Toolbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
@@ -174,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\university.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

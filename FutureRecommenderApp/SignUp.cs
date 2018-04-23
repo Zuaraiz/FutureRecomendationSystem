@@ -103,23 +103,30 @@ namespace FutureRecommenderApp
             String lname = edit3.Text;
             int budget = Int32.Parse(edit5.Text);
             int percentage = Int32.Parse(edit6.Text)/100;
-            Task<string> task = register(email, pass, fname, lname, percentage, budget, citySelected , qualSelected );
-            int x = JsonConvert.DeserializeObject<int>(task.Result);
-           
-            if (x==0)
+            if (Int32.Parse(edit6.Text) <= 100 && Int32.Parse(edit6.Text) >= 40)
             {
-                Toast.MakeText(this, "Error! User Already Exists", ToastLength.Short).Show();
+                Task<string> task = register(email, pass, fname, lname, percentage, budget, citySelected, qualSelected);
+                int x = JsonConvert.DeserializeObject<int>(task.Result);
+
+                if (x == 0)
+                {
+                    Toast.MakeText(this, "Error! User Already Exists", ToastLength.Short).Show();
+                }
+                else if (x == 2)
+                {
+                    Toast.MakeText(this, "Error! Server down", ToastLength.Short).Show();
+
+                }
+                else if (x == -1)
+                {
+                    Toast.MakeText(this, "User registed Sucessfully!", ToastLength.Long).Show();
+                    StartActivity(typeof(MainActivity));
+                    this.Finish();
+                }
             }
-            else if (x==2)
+            else
             {
-                Toast.MakeText(this, "Error! Server down", ToastLength.Short).Show();
-               
-            }
-            else if (x == -1)
-            {
-                Toast.MakeText(this, "User registed Sucessfully!", ToastLength.Long).Show();
-                StartActivity(typeof(MainActivity));
-                this.Finish();
+                Toast.MakeText(this, "Enter Percentage in Range(40-100)!", ToastLength.Long).Show();
             }
 
 

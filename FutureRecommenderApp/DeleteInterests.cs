@@ -15,8 +15,8 @@ using Newtonsoft.Json;
 
 namespace FutureRecommenderApp
 {
-    [Activity(Label = "Delete Skill")]
-    public class DeleteSkills : Activity
+    [Activity(Label = "Delete Interest")]
+    public class DeleteInterests : Activity
     {
         String email;
         List<GetUserSkills_Result> data;
@@ -26,7 +26,7 @@ namespace FutureRecommenderApp
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            SetContentView(Resource.Layout.deleteSkill);
+            SetContentView(Resource.Layout.deleteInterest);
             data = new List<GetUserSkills_Result>();
             ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(ApplicationContext);
             email = prefs.GetString("email", "empty");
@@ -36,10 +36,10 @@ namespace FutureRecommenderApp
                 StartActivity(typeof(MainActivity));
                 this.Finish();
             }
-          
+
             try
             {
-                Task<string> task = getUserSkill();
+                Task<string> task = getUserInterest();
                 var x = JsonConvert.DeserializeObject<GetUserSkills_Result[]>(task.Result);
                 foreach (GetUserSkills_Result a in x)
                 {
@@ -76,11 +76,11 @@ namespace FutureRecommenderApp
             button.Click += delegate {
                 spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
 
-                Task<string> task = DeleteSkill(email, SelectedSkill);
+                Task<string> task = DeleteInterest(email, SelectedSkill);
                 var x = JsonConvert.DeserializeObject(task.Result);
                 skillNames.Remove(SelectedSkill);
 
-                data.Remove(new GetUserSkills_Result {rating = SelectedId, name = SelectedSkill });
+                data.Remove(new GetUserSkills_Result { rating = SelectedId, name = SelectedSkill });
                 Toast.MakeText(this, "Skill Deleted Sucessfully", ToastLength.Short).Show();
 
                 adapter = new ArrayAdapter<string>(this,
@@ -102,7 +102,7 @@ namespace FutureRecommenderApp
             StartActivity(typeof(Dashboard));
             this.Finish();
         }
-        private async Task<string> getUserSkill()
+        private async Task<string> getUserInterest()
         {
             var client = new HttpClient();
             string r = "";
@@ -110,14 +110,14 @@ namespace FutureRecommenderApp
 
             var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
             HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");
-            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/user/skills", content).ConfigureAwait(false);
+            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/user/interests", content).ConfigureAwait(false);
             if (result.IsSuccessStatusCode)
             {
                 r = await result.Content.ReadAsStringAsync();
             }
             return r;
         }
-        private async Task<string> DeleteSkill(string email, string name)
+        private async Task<string> DeleteInterest(string email, string name)
         {
             var client = new HttpClient();
 
@@ -131,7 +131,7 @@ namespace FutureRecommenderApp
             var serializedJsonRequest = JsonConvert.SerializeObject(jsonRequest);
             HttpContent content = new StringContent(serializedJsonRequest, Encoding.UTF8, "application/json");
 
-            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/delete/skills", content).ConfigureAwait(false);
+            var result = await client.PostAsync("http://futurerecommend.azurewebsites.net/api/delete/interest", content).ConfigureAwait(false);
             if (result.IsSuccessStatusCode)
             {
                 r = await result.Content.ReadAsStringAsync();

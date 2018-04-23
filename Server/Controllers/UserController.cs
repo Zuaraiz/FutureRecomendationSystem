@@ -316,9 +316,22 @@ namespace Server.Controllers
 
             foreach(var obj in result)
             {
-                if(obj.annualFee<=userInfo.annualBudget && obj.location==getLocation(userInfo.location) &&obj.percentage<=userInfo.percentage && obj.rating>0)
+                if (obj.annualFee <= userInfo.annualBudget && obj.location == getLocation(userInfo.location) && obj.percentage <= userInfo.percentage && obj.rating > 0)
+
                 {
-                    RecommendResult.Add(new RecommendModel { UniversityName = getUniversity(obj.uniId).name, Degree = getDegree(obj.degree).name, fee = obj.annualFee, rating = obj.rating ?? 0,url = getUniversity(obj.uniId).website });
+                    if (obj.rating > 60)
+                    {
+                        RecommendResult.Add(new RecommendModel { ratingType="Highly Recommended", UniversityName = getUniversity(obj.uniId).name, Degree = getDegree(obj.degree).name, fee = obj.annualFee, rating = obj.rating ?? 0, url = getUniversity(obj.uniId).website });
+                    }
+                    else if (obj.rating > 60)
+                    {
+                        RecommendResult.Add(new RecommendModel { ratingType = "Moderatly Recommended", UniversityName = getUniversity(obj.uniId).name, Degree = getDegree(obj.degree).name, fee = obj.annualFee, rating = obj.rating ?? 0, url = getUniversity(obj.uniId).website });
+                    }
+                    else
+                    {
+                        RecommendResult.Add(new RecommendModel { ratingType = "slightly Recommended", UniversityName = getUniversity(obj.uniId).name, Degree = getDegree(obj.degree).name, fee = obj.annualFee, rating = obj.rating ?? 0, url = getUniversity(obj.uniId).website }); 
+                    }
+
 
                 }
 
