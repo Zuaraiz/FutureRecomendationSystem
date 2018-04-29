@@ -64,7 +64,7 @@ namespace FutureRecommenderApp.Resources.extra
             RecommendModel item = this[position];
             view.FindViewById<TextView>(Resource.Id.university).Text = item.UniversityName;
             view.FindViewById<TextView>(Resource.Id.degree).Text = item.Degree;
-            view.FindViewById<TextView>(Resource.Id.budget).Text ="fee: "+item.fee.ToString()+ " perSemester.";
+            view.FindViewById<TextView>(Resource.Id.budget).Text ="Fee: "+item.fee.ToString()+ " Per Annum.";
             view.FindViewById<TextView>(Resource.Id.rating).Text = item.ratingType;
             if (item.ratingType == "Highly Recommended")
             {
@@ -72,7 +72,7 @@ namespace FutureRecommenderApp.Resources.extra
             }
             else if (item.ratingType == "Moderatly Recommended")
             {
-                view.FindViewById<TextView>(Resource.Id.rating).SetTextColor(Android.Graphics.Color.Yellow);
+                view.FindViewById<TextView>(Resource.Id.rating).SetTextColor(Android.Graphics.Color.YellowGreen);
             }
             else
             {

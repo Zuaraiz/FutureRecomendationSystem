@@ -50,20 +50,20 @@ export class SignUpComponent implements OnInit {
       
   }
   getLocations(): void {
-      this.auth.AllLocation()
-          .subscribe(
-          resultArray => this.locations = resultArray,
-          error => console.log("Error :: " + error)
-          )
-      this.selectedLocation = this.locations[0];
+    this.auth.AllLocation()
+      .subscribe(
+      resultArray => this.locations = resultArray,
+      error => console.log("Error :: " + error)
+      , () => this.selectedLocation = this.locations[0]);
+   
   }
   getPreDegree(): void {
-      this.auth.AllPreDegree()
-          .subscribe(
-          resultArray => this.predegree = resultArray,
-          error => console.log("Error :: " + error)
-          )
-      this.selectedDegree = this.predegree[0];
+    this.auth.AllPreDegree()
+      .subscribe(
+      resultArray => this.predegree = resultArray,
+      error => console.log("Error :: " + error),
+      () => this.selectedDegree = this.predegree[0]);
+    
   }
     
 }

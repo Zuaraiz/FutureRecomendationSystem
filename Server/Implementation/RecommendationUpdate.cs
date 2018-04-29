@@ -20,7 +20,7 @@ namespace Server.Implementation
             ITrigger trigger = TriggerBuilder.Create()
                 .WithDailyTimeIntervalSchedule
                   (s =>
-                     s.WithIntervalInMinutes(10)
+                     s.WithIntervalInMinutes(3)
                     .OnEveryDay()
                     .StartingDailyAt(TimeOfDay.HourAndMinuteOfDay(0, 0))
                   )

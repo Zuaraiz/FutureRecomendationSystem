@@ -23,7 +23,7 @@ namespace FutureRecommenderApp
     }
   
    
-    [Activity(Label = "Future Councelor", Theme = "@android:style/Theme.Holo.Light.DarkActionBar", MainLauncher = true)]
+    [Activity(Label = "Future Counselor", Theme = "@android:style/Theme.Holo.Light.DarkActionBar", MainLauncher = true)]
     public class MainActivity : Activity
     {
         String email;

@@ -16,7 +16,7 @@ using static FutureRecommenderApp.AddSkill;
 
 namespace FutureRecommenderApp
 {
-    [Activity(Label = "AddInterest")]
+    [Activity(Label = "Add Interest")]
     public class AddInterest : Activity
     {
         String email;
@@ -105,7 +105,7 @@ namespace FutureRecommenderApp
                 skillNames.Remove(SelectedSkill);
 
                 data.Remove(new GetAllSkill_Result { id = SelectedId, name = SelectedSkill });
-                Toast.MakeText(this, "Skill added Sucessfully", ToastLength.Short).Show();
+                Toast.MakeText(this, "Interest added Sucessfully", ToastLength.Short).Show();
 
                 adapter = new ArrayAdapter<string>(this,
             Android.Resource.Layout.SimpleSpinnerItem, skillNames);

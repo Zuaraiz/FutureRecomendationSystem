@@ -87,7 +87,7 @@ namespace FutureRecommenderApp
                 skillNames.Remove(SelectedSkill);
 
                 data.Remove(new GetAllSkill_Result { id = SelectedId, name = SelectedSkill });
-                Toast.MakeText(this, "Skill added Sucessfully", ToastLength.Short).Show();
+                Toast.MakeText(this, "Hobby added Sucessfully", ToastLength.Short).Show();
 
                 adapter = new ArrayAdapter<string>(this,
             Android.Resource.Layout.SimpleSpinnerItem, skillNames);

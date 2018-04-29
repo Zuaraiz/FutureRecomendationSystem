@@ -17,7 +17,7 @@ using Android.Preferences;
 
 namespace FutureRecommenderApp
 {
-    [Activity(Label = "Future Councelor", Theme = "@android:style/Theme.Holo.Light.DarkActionBar")]
+    [Activity(Label = "Future Counselor", Theme = "@android:style/Theme.Holo.Light.DarkActionBar")]
     public class Dashboard : TabActivity 
     {
        

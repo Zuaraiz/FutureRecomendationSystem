@@ -21,7 +21,7 @@ namespace FutureRecommenderApp
         public string name { get; set; }
 
     }
-    [Activity(Label = "SignUp", Theme = "@android:style/Theme.Holo.Light.DarkActionBar")]
+    [Activity(Label = "Sign Up", Theme = "@android:style/Theme.Holo.Light.DarkActionBar")]
     public class SignUp : Activity
     {
 
